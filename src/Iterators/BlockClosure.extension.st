@@ -9,7 +9,7 @@ BlockClosure >> collectIt [
 
 { #category : #'*Iterators' }
 BlockClosure >> doIt [
-	^ DoIterator new
+	^ PreActionIterator new
 			block: self;
 			yourself
 ]
