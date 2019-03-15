@@ -1,3 +1,7 @@
+"
+I select the object returned by #next method of the iterator I decorate using the result of the evalution of my #block with this object as argument.
+I the evalution of the #block returns true, I return the object. Else I ignore the object and try the #next one.
+"
 Class {
 	#name : #SelectIterator,
 	#superclass : #IteratorDecoratorWithBlock,

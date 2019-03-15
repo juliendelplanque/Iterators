@@ -1,3 +1,6 @@
+"
+I am an iterator decorator that holds a Block in its #block instance variable.
+"
 Class {
 	#name : #IteratorDecoratorWithBlock,
 	#superclass : #IteratorDecorator,
