@@ -1,3 +1,6 @@
+"
+My subclasses conditionally apply an action defined by my #block depending on the result of #conditionBlock evaluation with #next element and index provided as arguments.
+"
 Class {
 	#name : #ConditionalActionIteratorDecorator,
 	#superclass : #IteratorDecoratorWithBlock,
