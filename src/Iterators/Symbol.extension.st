@@ -1,28 +1,28 @@
-Extension { #name : #BlockClosure }
+Extension { #name : #Symbol }
 
 { #category : #'*Iterators' }
-BlockClosure >> collectIt [
+Symbol >> collectIt [
 	^ CollectIterator new
 			block: self;
 			yourself
 ]
 
 { #category : #'*Iterators' }
-BlockClosure >> doIt [
+Symbol >> doIt [
 	^ PreActionIterator new
 			block: self;
 			yourself
 ]
 
 { #category : #'*Iterators' }
-BlockClosure >> rejectIt [
+Symbol >> rejectIt [
 	^ SelectIterator new
 			block: [ :object | (self value: object) not ];
 			yourself
 ]
 
 { #category : #'*Iterators' }
-BlockClosure >> selectIt [
+Symbol >> selectIt [
 	^ SelectIterator new
 			block: self;
 			yourself
