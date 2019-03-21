@@ -1,3 +1,6 @@
+"
+An SelectIteratorTest is a test class for testing the behavior of SelectIterator
+"
 Class {
 	#name : #SelectIteratorTest,
 	#superclass : #IteratorDecoratorTest,
