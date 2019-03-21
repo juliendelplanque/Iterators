@@ -45,23 +45,33 @@ Iterator >> signalAtEnd [
 ]
 
 { #category : #computing }
+Iterator >> upTo: size as: aCollectionClass [
+	| actualSize collection |
+	actualSize := 0.
+	(aCollectionClass inheritsFrom: SequenceableCollection)
+		ifTrue: [ 
+			^ aCollectionClass streamContents: [ :stream |
+				[ self hasNext and: [ actualSize < size ] ]
+					whileTrue: [ 
+						stream nextPut: self next.
+						actualSize := actualSize + 1 ] ] ].
+	
+	collection := aCollectionClass new.
+	[ self hasNext and: [ actualSize < size ] ]
+		whileTrue: [ 
+			collection add: self next.
+			actualSize := actualSize + 1 ].
+	^ collection
+]
+
+{ #category : #computing }
 Iterator >> upToEnd [
 	^ self upToEndAs: Array
 ]
 
 { #category : #computing }
 Iterator >> upToEndAs: aCollectionClass [
-	| collection |
-	(aCollectionClass inheritsFrom: SequenceableCollection)
-		ifTrue: [ 
-			^ aCollectionClass streamContents: [ :stream |
-				[ self hasNext ]
-					whileTrue: [ stream nextPut: self next ] ] ].
-	
-	collection := aCollectionClass new.
-	[ self hasNext ]
-		whileTrue: [ collection add: self next ].
-	^ collection
+	^ self upTo: Float infinity as: aCollectionClass
 ]
 
 { #category : #decorating }
