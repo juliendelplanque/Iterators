@@ -75,6 +75,11 @@ Iterator >> upToEndAs: aCollectionClass [
 ]
 
 { #category : #decorating }
+Iterator >> withCollectionAPI [
+	^ self decoratedBy: IteratorWithCollectionAPI new
+]
+
+{ #category : #decorating }
 Iterator >> | anIteratorDecorator [
 	^ self decoratedBy: anIteratorDecorator
 ]
