@@ -1,11 +1,11 @@
 Extension { #name : #LinkedList }
 
 { #category : #'*Iterators-CollectionsExtensions' }
-LinkedList >> iterator [
+LinkedList >> basicIterator [
 	^ LinkedListIterator on: self firstLink nextLinkBlock: #nextLink extractBlock: #value
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }
-LinkedList >> reversedIterator [
+LinkedList >> basicReversedIterator [
 	^ ReverseLinkedListIterator on: self firstLink nextLinkBlock: #nextLink extractBlock: #value
 ]

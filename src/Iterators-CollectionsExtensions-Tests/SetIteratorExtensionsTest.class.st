@@ -22,6 +22,7 @@ SetIteratorExtensionsTest >> testIterator [
 SetIteratorExtensionsTest >> testIteratorEmptySet [
 	| emptySet |
 	emptySet := Set new.
-	self assert: emptySet iterator class equals: NullIterator.
+	self assert: emptySet iterator class equals: IteratorWithCollectionAPI.
+	self assert: emptySet iterator decoratedIterator class equals: NullIterator.
 	self assert: (emptySet iterator upToEndAs: Array) isEmpty.
 ]
