@@ -37,6 +37,15 @@ IteratorTest >> setUp [
 	iterator := self createIteratorOn: self objectToWalk
 ]
 
+{ #category : #test }
+IteratorTest >> testDecoratedBy [
+	| decorating |
+	decorating := iterator decoratedBy: IteratorDecorator new.
+	
+	self assert: decorating class equals: IteratorDecorator.
+	self assert: decorating decoratedIterator equals: iterator
+]
+
 { #category : #tests }
 IteratorTest >> testHasNext [
 	self iteratorWalk size timesRepeat: [ 
@@ -61,4 +70,57 @@ IteratorTest >> testPeek [
 		iterator next ].
 	
 	self should: [ iterator peek ] raise: IteratorIsAtEnd
+]
+
+{ #category : #test }
+IteratorTest >> testUpToAs [
+	self
+		assertCollection: (iterator upTo: (self iteratorWalk size / 2) rounded as: OrderedCollection)
+		equals: ((self iteratorWalk copyFrom: 1 to: (self iteratorWalk size / 2) rounded) as: OrderedCollection)
+]
+
+{ #category : #test }
+IteratorTest >> testUpToEndAs [
+	self
+		assertCollection: (iterator upToEndAs: OrderedCollection)
+		equals: (self iteratorWalk as: OrderedCollection)
+]
+
+{ #category : #test }
+IteratorTest >> testUpToEndInto [
+	| colToAdd |
+	colToAdd := OrderedCollection new.
+	colToAdd add: 1.
+	colToAdd add: 2.
+	self assert: colToAdd size equals: 2.
+	
+	iterator upToEndInto: colToAdd.
+	
+	self
+		assertCollection: colToAdd
+		equals: (({ 1 . 2 } , self iteratorWalk) as: OrderedCollection)
+]
+
+{ #category : #test }
+IteratorTest >> testUpToInto [
+	| colToAdd |
+	colToAdd := OrderedCollection new.
+	colToAdd add: 1.
+	colToAdd add: 2.
+	self assert: colToAdd size equals: 2.
+	
+	iterator upTo: (self iteratorWalk size / 2) rounded into: colToAdd.
+	
+	self
+		assertCollection: colToAdd
+		equals: (({ 1 . 2 } , (self iteratorWalk copyFrom: 1 to: (self iteratorWalk size / 2) rounded)) as: OrderedCollection)
+]
+
+{ #category : #test }
+IteratorTest >> testWithCollectionAPI [
+	| withCollectionAPI |
+	withCollectionAPI := iterator withCollectionAPI.
+	
+	self assert: withCollectionAPI class equals: IteratorWithCollectionAPI.
+	self assert: withCollectionAPI decoratedIterator equals: iterator
 ]
