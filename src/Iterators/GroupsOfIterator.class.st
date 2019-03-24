@@ -51,8 +51,7 @@ GroupsOfIterator >> hasNext [
 
 { #category : #accessing }
 GroupsOfIterator >> next [
-	self hasNext
-		ifFalse: [ self signalAtEnd ].
+	self checkHasNext.
 	^ [ groupBuffer ]
 		ensure: [ groupBuffer := nil ]
 ]
