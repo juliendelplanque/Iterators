@@ -11,6 +11,16 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #computing }
+Iterator >> > aCollectionClass [
+	^ self upToEndAs: aCollectionClass
+]
+
+{ #category : #computing }
+Iterator >> >> aAddableCollection [
+	^ self upToEndInto: aAddableCollection
+]
+
 { #category : #private }
 Iterator >> checkHasNext [
 	self hasNext
@@ -46,22 +56,27 @@ Iterator >> signalAtEnd [
 
 { #category : #computing }
 Iterator >> upTo: size as: aCollectionClass [
-	| actualSize collection |
-	actualSize := 0.
+	| actualSize |
 	(aCollectionClass inheritsFrom: SequenceableCollection)
-		ifTrue: [ 
-			^ aCollectionClass streamContents: [ :stream |
-				[ self hasNext and: [ actualSize < size ] ]
-					whileTrue: [ 
-						stream nextPut: self next.
-						actualSize := actualSize + 1 ] ] ].
+		ifFalse: [ ^ self upTo: size into: aCollectionClass new ].
 	
-	collection := aCollectionClass new.
+	actualSize := 0.
+	^ aCollectionClass streamContents: [ :stream |
+		[ self hasNext and: [ actualSize < size ] ]
+			whileTrue: [ 
+				stream nextPut: self next.
+				actualSize := actualSize + 1 ] ]
+]
+
+{ #category : #computing }
+Iterator >> upTo: size into: aAddableCollection [
+	| actualSize |
+	actualSize := 0.
 	[ self hasNext and: [ actualSize < size ] ]
 		whileTrue: [ 
-			collection add: self next.
+			aAddableCollection add: self next.
 			actualSize := actualSize + 1 ].
-	^ collection
+	^ aAddableCollection
 ]
 
 { #category : #computing }
@@ -72,6 +87,11 @@ Iterator >> upToEnd [
 { #category : #computing }
 Iterator >> upToEndAs: aCollectionClass [
 	^ self upTo: Float infinity as: aCollectionClass
+]
+
+{ #category : #computing }
+Iterator >> upToEndInto: aAddableCollection [
+	^ self upTo: Float infinity into: aAddableCollection
 ]
 
 { #category : #decorating }
