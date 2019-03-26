@@ -90,6 +90,11 @@ Iterator >> upToEndAs: aCollectionClass [
 ]
 
 { #category : #computing }
+Iterator >> upToEndDiscardingResult [
+	^ self upToEndInto: NullAddableObject
+]
+
+{ #category : #computing }
 Iterator >> upToEndInto: aAddableCollection [
 	^ self upTo: Float infinity into: aAddableCollection
 ]
