@@ -27,3 +27,11 @@ BlockClosure >> selectIt [
 			block: self;
 			yourself
 ]
+
+{ #category : #'*Iterators' }
+BlockClosure >> separateIt [
+	^ PreActionIterator new
+			conditionBlock: [ :objectsSeenCount | objectsSeenCount > 0 ];
+			block: self;
+			yourself
+]

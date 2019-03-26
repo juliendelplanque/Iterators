@@ -30,5 +30,5 @@ ConditionalActionIteratorDecorator >> initialize [
 
 { #category : #testing }
 ConditionalActionIteratorDecorator >> shouldApplyActionOnNext [
-	^ conditionBlock cull: objectsSeenCount + 1 cull: self peek
+	^ conditionBlock cull: objectsSeenCount cull: self peek
 ]

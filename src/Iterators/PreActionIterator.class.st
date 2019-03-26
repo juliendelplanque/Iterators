@@ -10,6 +10,7 @@ Class {
 { #category : #accessing }
 PreActionIterator >> next [
 	self shouldApplyActionOnNext
-		ifTrue: self block.
+		ifTrue: [ self block cull: self peek ].
+	objectsSeenCount := objectsSeenCount + 1.
 	^ super next
 ]
