@@ -34,6 +34,11 @@ Iterator >> decoratedBy: anIteratorDecorator [
 		yourself
 ]
 
+{ #category : #accessing }
+Iterator >> expectedUpToEndSize [
+	^ self subclassResponsibility
+]
+
 { #category : #testing }
 Iterator >> hasNext [
 	^ self subclassResponsibility
@@ -56,12 +61,17 @@ Iterator >> signalAtEnd [
 
 { #category : #computing }
 Iterator >> upTo: size as: aCollectionClass [
-	| actualSize |
+	| actualSize expectedUpToEndSize |
 	(aCollectionClass inheritsFrom: SequenceableCollection)
 		ifFalse: [ ^ self upTo: size into: aCollectionClass new ].
 	
 	actualSize := 0.
-	^ aCollectionClass streamContents: [ :stream |
+	size isInfinite
+		ifTrue: [
+			expectedUpToEndSize := self expectedUpToEndSize.
+			expectedUpToEndSize isInfinite ifTrue: [ expectedUpToEndSize := 100 ] ]
+		ifFalse: [ expectedUpToEndSize := size ].
+	^ aCollectionClass new: expectedUpToEndSize streamContents: [ :stream |
 		[ self hasNext and: [ actualSize < size ] ]
 			whileTrue: [ 
 				stream nextPut: self next.

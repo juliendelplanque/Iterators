@@ -33,6 +33,11 @@ IteratorDecorator >> decoratedIterator: anObject [
 	decoratedIterator := anObject
 ]
 
+{ #category : #accessing }
+IteratorDecorator >> expectedUpToEndSize [
+	^ self decoratedIterator expectedUpToEndSize
+]
+
 { #category : #testing }
 IteratorDecorator >> hasNext [
 	^ self decoratedIterator hasNext

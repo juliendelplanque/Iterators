@@ -10,6 +10,11 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #accessing }
+NullIterator >> expectedUpToEndSize [
+	^ 0
+]
+
 { #category : #testing }
 NullIterator >> hasNext [
 	^ false

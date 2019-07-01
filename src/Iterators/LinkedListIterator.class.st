@@ -26,6 +26,11 @@ LinkedListIterator class >> on: aValueLink nextLinkBlock: aBlockClosure extractB
 		yourself
 ]
 
+{ #category : #accessing }
+LinkedListIterator >> expectedUpToEndSize [
+	^ Float infinity
+]
+
 { #category : #testing }
 LinkedListIterator >> hasNext [
 	^ self nextLink isNotNil

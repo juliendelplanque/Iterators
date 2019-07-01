@@ -20,6 +20,11 @@ SequentialAccessIterator class >> on: aSequenceableCollection [
 		yourself
 ]
 
+{ #category : #accessing }
+SequentialAccessIterator >> expectedUpToEndSize [
+	^ sequenceableCollection size
+]
+
 { #category : #testing }
 SequentialAccessIterator >> hasNext [
 	^ currentIndex < sequenceableCollection size

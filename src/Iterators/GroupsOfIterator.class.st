@@ -23,6 +23,11 @@ GroupsOfIterator >> defaultGroupClass [
 ]
 
 { #category : #accessing }
+GroupsOfIterator >> expectedUpToEndSize [
+	^ super expectedUpToEndSize // self groupSize
+]
+
+{ #category : #accessing }
 GroupsOfIterator >> groupClass [
 	^ groupClass ifNil: [ groupClass := self defaultGroupClass ]
 ]

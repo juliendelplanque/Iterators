@@ -8,6 +8,11 @@ Class {
 	#category : #'Iterators-Decorators'
 }
 
+{ #category : #accessing }
+SelectIterator >> expectedUpToEndSize [
+	^ Float infinity
+]
+
 { #category : #testing }
 SelectIterator >> hasNext [
 	[ self peek ] on: IteratorIsAtEnd do: [ ^ false ]. "Pass all objects for which #block returns false."
