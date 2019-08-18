@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+    #loading : [
+        SCIMetacelloLoadSpec {
+            #baseline : 'Iterators',
+            #directory : 'src',
+            #platforms : [ #pharo ]
+        }
+    ]
+}
