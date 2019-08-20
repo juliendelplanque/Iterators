@@ -24,6 +24,9 @@ GroupsOfIterator >> defaultGroupClass [
 
 { #category : #accessing }
 GroupsOfIterator >> expectedUpToEndSize [
+	super expectedUpToEndSize isInfinite
+		ifTrue: [ ^ super expectedUpToEndSize ].
+	
 	^ super expectedUpToEndSize // self groupSize
 ]
 
