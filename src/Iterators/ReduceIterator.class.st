@@ -1,3 +1,10 @@
+"
+I am an iterator that works similary to #reduce: method.
+
+I evaluate reduce the objects I get from the stream using my #reduceBlock.
+
+Such iterator will return a single object.
+"
 Class {
 	#name : #ReduceIterator,
 	#superclass : #AggregatorIteratorDecorator,

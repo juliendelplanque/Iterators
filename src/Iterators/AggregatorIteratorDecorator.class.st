@@ -1,3 +1,8 @@
+"
+I am an abstract iterator that aggregates the objects gathered from the iterator I wrap.
+
+My concrete subclasses should implement #aggregateUpToEnd to define how to aggregate objects.
+"
 Class {
 	#name : #AggregatorIteratorDecorator,
 	#superclass : #IteratorDecorator,
