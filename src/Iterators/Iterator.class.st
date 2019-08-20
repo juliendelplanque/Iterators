@@ -116,5 +116,5 @@ Iterator >> withCollectionAPI [
 
 { #category : #decorating }
 Iterator >> | anIteratorDecorator [
-	^ self decoratedBy: anIteratorDecorator
+	^ anIteratorDecorator decorate: self
 ]
