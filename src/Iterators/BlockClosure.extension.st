@@ -15,6 +15,13 @@ BlockClosure >> doIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> reduceIt [
+	^ ReduceIterator new
+			reduceBlock: self;
+			yourself
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> rejectIt [
 	^ SelectIterator new
 			block: [ :object | (self value: object) not ];
