@@ -7,22 +7,13 @@ Such iterator will return a single object.
 "
 Class {
 	#name : #InjectIntoIterator,
-	#superclass : #IteratorDecorator,
+	#superclass : #AggregatorIteratorDecorator,
 	#instVars : [
 		'baseValue',
-		'accumulationBlock',
-		'accumulatedValue'
+		'accumulationBlock'
 	],
 	#category : #'Iterators-Decorators'
 }
-
-{ #category : #private }
-InjectIntoIterator >> accumulateUpToEnd [
-	accumulatedValue := self baseValue.
-	[ self decoratedIterator hasNext ]
-		whileTrue: [ 
-			accumulatedValue := self accumulationBlock value: accumulatedValue value: self decoratedIterator next ]
-]
 
 { #category : #accessing }
 InjectIntoIterator >> accumulationBlock [
@@ -34,6 +25,14 @@ InjectIntoIterator >> accumulationBlock: anObject [
 	accumulationBlock := anObject
 ]
 
+{ #category : #private }
+InjectIntoIterator >> aggregateUpToEnd [
+	aggregatedValue := self baseValue.
+	[ self decoratedIterator hasNext ]
+		whileTrue: [ 
+			aggregatedValue := self accumulationBlock value: aggregatedValue value: self decoratedIterator next ]
+]
+
 { #category : #accessing }
 InjectIntoIterator >> baseValue [
 	^ baseValue
@@ -42,25 +41,4 @@ InjectIntoIterator >> baseValue [
 { #category : #accessing }
 InjectIntoIterator >> baseValue: anObject [
 	baseValue := anObject
-]
-
-{ #category : #accessing }
-InjectIntoIterator >> next [
-	| toReturn |
-	self peek.
-	toReturn := accumulatedValue.
-	accumulatedValue := nil.
-	^ toReturn
-]
-
-{ #category : #accessing }
-InjectIntoIterator >> peek [
-	(self decoratedIterator hasNext and: [ accumulatedValue isNil ]) 
-		ifTrue: [ 
-			self accumulateUpToEnd.
-			^ accumulatedValue ].
-	
-	accumulatedValue ifNotNil: [ ^ accumulatedValue ].
-	
-	self signalAtEnd
 ]
