@@ -1,3 +1,6 @@
+"
+I walk a tree breadth-first.
+"
 Class {
 	#name : #BreadthFirstIterator,
 	#superclass : #TreeIterator,

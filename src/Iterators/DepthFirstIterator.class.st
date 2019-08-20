@@ -1,3 +1,6 @@
+"
+I walk a tree depth-first.
+"
 Class {
 	#name : #DepthFirstIterator,
 	#superclass : #TreeIterator,

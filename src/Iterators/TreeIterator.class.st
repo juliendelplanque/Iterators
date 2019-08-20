@@ -1,3 +1,10 @@
+"
+I am an abstract iterator to traverse a tree.
+
+My subclasses define concrete walks on a tree.
+
+I store the #root of the tree and a block to access children of any node reached (#childrenBlock).
+"
 Class {
 	#name : #TreeIterator,
 	#superclass : #Iterator,
