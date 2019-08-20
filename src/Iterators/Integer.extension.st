@@ -6,11 +6,3 @@ Integer >> groupIt [
 		groupSize: self;
 		yourself
 ]
-
-{ #category : #'*Iterators' }
-Integer >> injectItInto: aBlock [
-	^ InjectIntoIterator new
-		baseValue: self;
-		accumulationBlock: aBlock;
-		yourself
-]
