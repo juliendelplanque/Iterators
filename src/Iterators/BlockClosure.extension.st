@@ -15,6 +15,11 @@ BlockClosure >> doIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> foldIt [
+	^	self reduceIt
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> reduceIt [
 	^ ReduceIterator new
 			reduceBlock: self;
