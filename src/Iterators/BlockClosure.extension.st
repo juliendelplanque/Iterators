@@ -20,6 +20,13 @@ BlockClosure >> foldIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> mergeIt [
+	^ IteratorsMerger new
+		mergeBlock: self;
+		yourself
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> reduceIt [
 	^ ReduceIterator new
 			reduceBlock: self;
