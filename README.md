@@ -27,7 +27,7 @@ iterator peek. "1"
 iterator next. "1"
 iterator next. "2"
 iterator next. "3"
-iterator hasNext. "false.
+iterator hasNext. "false"
 iterator next. "Raises IteratorIsAtEnd error"
 ```
 
@@ -130,6 +130,25 @@ iterator
 	| 2 groupIt "Create as much groups of 2 items as possible."
 	> Array "#((1 2) (3))"
 ```
+
+### Chaining Iterator Decorators
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x | x * 2 ] collectIt
+	| [ :x :y | x + y ] reduceIt
+	> Array "#(12)"
+````
+
+### Discarding Output
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x | x * 2 ] collectIt
+	| [ :object | object logCr ] doIt "Just print incoming objects in transcript."
+	> NullAddableObject "Special object that ignore incoming objects."
+````
 
 ### Iterator Wrappers
 TODO
