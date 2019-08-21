@@ -131,5 +131,24 @@ iterator
 	> Array "#((1 2) (3))"
 ```
 
+### Chaining Iterator Decorators
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x | x * 2 ] collectIt
+	| [ :x :y | x + y ] reduceIt
+	> Array "#(12)"
+````
+
+### Discarding Output
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x | x * 2 ] collectIt
+	| [ :object | object logCr ] doIt "Just print incoming objects in transcript."
+	> NullAddableObject "Special object that ignore incoming objects."
+````
+
 ### Iterator Wrappers
 TODO
