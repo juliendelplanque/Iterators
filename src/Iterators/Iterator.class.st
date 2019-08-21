@@ -11,6 +11,14 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #wrapping }
+Iterator >> & anIterator [
+	^ IteratorsList new
+		add: self;
+		add: anIterator;
+		yourself
+]
+
 { #category : #computing }
 Iterator >> > aCollectionClass [
 	^ self upToEndAs: aCollectionClass
