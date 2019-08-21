@@ -27,7 +27,7 @@ iterator peek. "1"
 iterator next. "1"
 iterator next. "2"
 iterator next. "3"
-iterator hasNext. "false.
+iterator hasNext. "false"
 iterator next. "Raises IteratorIsAtEnd error"
 ```
 
