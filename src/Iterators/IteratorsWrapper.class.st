@@ -11,7 +11,7 @@ Class {
 IteratorsWrapper >> expectedUpToEndSize [
 	^ (self wrappedIterators iterator
 			| #expectedUpToEndSize collectIt
-			| [ :x :y | x max: y ]) next
+			| [ :x :y | x max: y ] reduceIt) next
 ]
 
 { #category : #testing }
