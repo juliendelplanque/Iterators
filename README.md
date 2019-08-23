@@ -73,6 +73,9 @@ breadthFirstClassesHierarchyIterator := BreadthFirstIterator root: Object childr
 depthFirstClassesHierarchyIterator := DepthFirstIterator root: Object childrenBlock: #subclasses.
 ```
 
+### Iterators DSL
+> TODO
+
 ### Iterator Decorators
 It is possible to decorate it with an `IteratorDecorator` to apply transformations and/or process on incoming data.
 
@@ -152,4 +155,4 @@ iterator
 ````
 
 ### Iterator Wrappers
-TODO
+> TODO
