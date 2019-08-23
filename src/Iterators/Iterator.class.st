@@ -29,6 +29,12 @@ Iterator >> >> aAddableCollection [
 	^ self upToEndInto: aAddableCollection
 ]
 
+{ #category : #testing }
+Iterator >> atEnd [
+	"Returns true if the iterator can not provide more objects."
+	^ self hasNext not
+]
+
 { #category : #private }
 Iterator >> checkHasNext [
 	self hasNext
