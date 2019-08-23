@@ -74,7 +74,13 @@ depthFirstClassesHierarchyIterator := DepthFirstIterator root: Object childrenBl
 ```
 
 ### Iterators DSL
-> TODO
+Iterators provides a DSL to deal with iterators combination.
+
+It is inspired from shell’s streams manipulation syntax:
+
+- The pipe `|` operator allows one to chain iterators
+- The `>` operator allows one to create a new collection with data transformed through chained iterators
+- The `>>` operator allows one to fill an existing collection with data transformed through chained iterators
 
 ### Iterator Decorators
 It is possible to decorate it with an `IteratorDecorator` to apply transformations and/or process on incoming data.
