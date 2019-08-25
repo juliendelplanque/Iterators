@@ -37,6 +37,15 @@ IteratorTest >> setUp [
 	iterator := self createIteratorOn: self objectToWalk
 ]
 
+{ #category : #tests }
+IteratorTest >> testAtEndNext [
+	self iteratorWalk size timesRepeat: [ 
+		self deny: iterator atEnd.
+		iterator next ].
+	
+	self assert: iterator atEnd
+]
+
 { #category : #test }
 IteratorTest >> testDecoratedBy [
 	| decorating |

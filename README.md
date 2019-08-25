@@ -1,6 +1,7 @@
 # Iterators
 [![Build Status](https://travis-ci.org/juliendelplanque/Iterators.svg?branch=master)](https://travis-ci.org/juliendelplanque/Iterators)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Pharo version](https://img.shields.io/badge/Pharo-6.1-%23aac9ff.svg)](https://pharo.org/download)
 [![Pharo version](https://img.shields.io/badge/Pharo-7.0-%23aac9ff.svg)](https://pharo.org/download)
 [![Pharo version](https://img.shields.io/badge/Pharo-8.0-%23aac9ff.svg)](https://pharo.org/download)
 
@@ -71,6 +72,15 @@ associationsIterator := dict associationsIterator
 breadthFirstClassesHierarchyIterator := BreadthFirstIterator root: Object childrenBlock: #subclasses.
 depthFirstClassesHierarchyIterator := DepthFirstIterator root: Object childrenBlock: #subclasses.
 ```
+
+### Iterators DSL
+Iterators provides a DSL to deal with iterators combination.
+
+It is inspired from shell’s streams manipulation syntax:
+
+- The pipe `|` operator allows one to chain iterators
+- The `>` operator allows one to create a new collection with data transformed through chained iterators
+- The `>>` operator allows one to fill an existing collection with data transformed through chained iterators
 
 ### Iterator Decorators
 It is possible to decorate it with an `IteratorDecorator` to apply transformations and/or process on incoming data.
@@ -151,4 +161,4 @@ iterator
 ````
 
 ### Iterator Wrappers
-TODO
+> TODO
