@@ -15,6 +15,17 @@ Symbol >> doIt [
 ]
 
 { #category : #'*Iterators' }
+Symbol >> foldIt [
+	^ self reduceIt
+]
+
+{ #category : #'*Iterators' }
+Symbol >> reduceIt [
+	^ [ :object :anotherObject |
+		object perform: self with: anotherObject ] reduceIt
+]
+
+{ #category : #'*Iterators' }
 Symbol >> rejectIt [
 	^ SelectIterator new
 			block: [ :object | (self value: object) not ];
