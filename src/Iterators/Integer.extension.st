@@ -6,3 +6,10 @@ Integer >> groupIt [
 		groupSize: self;
 		yourself
 ]
+
+{ #category : #'*Iterators' }
+Integer >> limitIt [
+	^ LimitIterator new
+		limit: self;
+		yourself
+]
