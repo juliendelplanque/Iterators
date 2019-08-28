@@ -23,7 +23,7 @@ IteratorDecorator class >> decorate: anIterator [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 IteratorDecorator >> decorate: anIterator [
 	"To make instance-side and class-side polymorphic."
 	self decoratedIterator: anIterator
