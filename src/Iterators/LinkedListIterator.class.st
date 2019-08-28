@@ -31,6 +31,11 @@ LinkedListIterator class >> on: aValueLink nextLinkBlock: aBlockClosure extractB
 		yourself
 ]
 
+{ #category : #converting }
+LinkedListIterator >> asReverseIteratorFromCurrentLink [
+	^ ReverseLinkedListIterator on: currentLink nextLinkBlock: nextLinkBlock extractBlock: extractObjectFromLinkBlock
+]
+
 { #category : #accessing }
 LinkedListIterator >> expectedUpToEndSize [
 	^ Float infinity

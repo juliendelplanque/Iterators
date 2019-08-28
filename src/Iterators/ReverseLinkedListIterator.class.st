@@ -7,6 +7,11 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #converting }
+ReverseLinkedListIterator >> asReverseIteratorFromCurrentLink [
+	^ LinkedListIterator on: currentLink nextLinkBlock: nextLinkBlock extractBlock: extractObjectFromLinkBlock
+]
+
 { #category : #testing }
 ReverseLinkedListIterator >> hasNext [
 	^ linksStack isNotEmpty
