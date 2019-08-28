@@ -50,6 +50,16 @@ Iterator >> peek [
 	^ self subclassResponsibility
 ]
 
+{ #category : #decorating }
+Iterator >> removeDuplicates [
+	^ self decoratedBy: DuplicateRemoverIterator new
+]
+
+{ #category : #decorating }
+Iterator >> removeIdentityDuplicates [
+	^ self decoratedBy: IdentityDuplicateRemoverIterator new
+]
+
 { #category : #private }
 Iterator >> signalAtEnd [
 	IteratorIsAtEnd signalIterator: self
