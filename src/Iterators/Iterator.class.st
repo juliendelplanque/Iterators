@@ -11,24 +11,6 @@ Class {
 	#category : #'Iterators-Core'
 }
 
-{ #category : #wrapping }
-Iterator >> & anIterator [
-	^ IteratorsList new
-		add: self;
-		add: anIterator;
-		yourself
-]
-
-{ #category : #computing }
-Iterator >> > aCollectionClass [
-	^ self upToEndAs: aCollectionClass
-]
-
-{ #category : #computing }
-Iterator >> >> aAddableCollection [
-	^ self upToEndInto: aAddableCollection
-]
-
 { #category : #testing }
 Iterator >> atEnd [
 	"Returns true if the iterator can not provide more objects."
@@ -126,9 +108,4 @@ Iterator >> upToEndInto: aAddableCollection [
 { #category : #decorating }
 Iterator >> withCollectionAPI [
 	^ self decoratedBy: IteratorWithCollectionAPI new
-]
-
-{ #category : #decorating }
-Iterator >> | anIteratorDecorator [
-	^ anIteratorDecorator decorate: self
 ]

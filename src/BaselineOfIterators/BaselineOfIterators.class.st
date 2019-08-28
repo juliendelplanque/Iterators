@@ -15,7 +15,8 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators';
 				package: 'Iterators-Tests' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
-				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ].
+				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];
+				package: 'Iterators-ShellDSL' with: [ spec requires: #('Iterators') ].
 				
 			spec for: #'pharo6.x'
 				do: [ 

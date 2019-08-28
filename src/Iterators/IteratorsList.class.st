@@ -7,12 +7,6 @@ Class {
 	#category : #'Iterators-Wrappers'
 }
 
-{ #category : #'logical operations' }
-IteratorsList >> & anIterator [
-	self add: anIterator.
-	^ self
-]
-
 { #category : #adding }
 IteratorsList >> add: anIterator [
 	self iterators add: anIterator
@@ -38,10 +32,4 @@ IteratorsList >> iterators [
 { #category : #accessing }
 IteratorsList >> iterators: anObject [
 	iterators := anObject
-]
-
-{ #category : #'logical operations' }
-IteratorsList >> | anIteratorsWrapper [
-	anIteratorsWrapper wrappedIterators: self.
-	^ anIteratorsWrapper
 ]
