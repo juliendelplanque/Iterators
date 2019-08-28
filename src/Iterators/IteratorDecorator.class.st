@@ -39,6 +39,11 @@ IteratorDecorator >> decoratedIterator: anObject [
 	decoratedIterator := anObject
 ]
 
+{ #category : #iterators }
+IteratorDecorator >> decoratedIteratorsIterator [
+	^ LinkedListIterator on: self nextLinkBlock: [ :iterator | iterator decoratedIterator ]
+]
+
 { #category : #accessing }
 IteratorDecorator >> expectedUpToEndSize [
 	^ self decoratedIterator expectedUpToEndSize

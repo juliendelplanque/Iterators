@@ -31,6 +31,14 @@ Iterator >> decoratedBy: anIteratorDecorator [
 ]
 
 { #category : #accessing }
+Iterator >> decoratedIterator [
+	"An iterator decorates no other iterator.
+	 This method make Iterator and IteratorDecorator polymorphic.
+	 Thus it returns nil."
+	^ nil
+]
+
+{ #category : #accessing }
 Iterator >> expectedUpToEndSize [
 	^ self subclassResponsibility
 ]
