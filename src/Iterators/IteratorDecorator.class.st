@@ -23,6 +23,11 @@ IteratorDecorator class >> decorate: anIterator [
 		yourself
 ]
 
+{ #category : #iterators }
+IteratorDecorator >> dataflowOrderIteratorsIterator [
+	^ ReverseLinkedListIterator on: self nextLinkBlock: [ :iterator | iterator decoratedIterator ]
+]
+
 { #category : #accessing }
 IteratorDecorator >> decorate: anIterator [
 	"To make instance-side and class-side polymorphic."
@@ -47,6 +52,25 @@ IteratorDecorator >> decoratedIteratorsIterator [
 { #category : #accessing }
 IteratorDecorator >> expectedUpToEndSize [
 	^ self decoratedIterator expectedUpToEndSize
+]
+
+{ #category : #'gt-inspector-extension' }
+IteratorDecorator >> gtInspectorItemsIn: composite [
+	<gtInspectorPresentationOrder: 0>
+	^ composite fastTable
+		title: 'Iterators composition';
+		display: [ self dataflowOrderIteratorsIterator upToEnd ];
+		beMultiple;
+		enableElementIndex;
+		wantsAutomaticRefresh: true;
+		column: 'Data flow order' evaluated: [ :value :idex | idex asString ] width: 100;
+		column: 'Item' evaluated: [ :value | GTObjectPrinter asTruncatedTextFrom: value ]";
+		send: [ :result | 
+			result isNil
+				ifTrue: [ nil ]
+				ifFalse: [ result size = 1 
+					ifTrue: [result anyOne ]  
+					ifFalse: [self species withAll: result]]]"
 ]
 
 { #category : #testing }
