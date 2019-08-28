@@ -20,6 +20,11 @@ Class {
 }
 
 { #category : #'instance creation' }
+LinkedListIterator class >> on: aValueLink nextLinkBlock: aBlockClosure [
+	^ self on: aValueLink nextLinkBlock: aBlockClosure extractBlock: [ :object | object ]
+]
+
+{ #category : #'instance creation' }
 LinkedListIterator class >> on: aValueLink nextLinkBlock: aBlockClosure extractBlock: anotherBlockClosure [
 	^ self new
 		initializeOn: aValueLink nextLinkBlock: aBlockClosure extractBlock: anotherBlockClosure;
