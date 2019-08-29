@@ -51,3 +51,11 @@ LimitIterator >> peek [
 	self checkHasNext.
 	^ super peek
 ]
+
+{ #category : #printing }
+LimitIterator >> printOn: aStream [
+	super printOn: aStream.
+	aStream nextPut: $(.
+	self limit printOn: aStream.
+	aStream nextPut: $).
+]

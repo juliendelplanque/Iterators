@@ -26,3 +26,11 @@ IteratorDecoratorWithBlock >> block [
 IteratorDecoratorWithBlock >> block: anObject [
 	block := anObject
 ]
+
+{ #category : #printing }
+IteratorDecoratorWithBlock >> printOn: aStream [
+	super printOn: aStream.
+	aStream nextPut: $(.
+	self block printOn: aStream.
+	aStream nextPut: $).
+]
