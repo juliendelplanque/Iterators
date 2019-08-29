@@ -15,11 +15,6 @@ SelectIterator >> hasNext [
 ]
 
 { #category : #accessing }
-SelectIterator >> maximalUpToEndSize [
-	^ Float infinity
-]
-
-{ #category : #accessing }
 SelectIterator >> next [
 	self peek. "Pass all objects for which #block returns false."
 	^ super next
