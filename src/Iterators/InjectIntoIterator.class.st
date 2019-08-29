@@ -9,20 +9,19 @@ Class {
 	#name : #InjectIntoIterator,
 	#superclass : #AggregatorIteratorDecorator,
 	#instVars : [
-		'baseValue',
-		'accumulationBlock'
+		'baseValue'
 	],
 	#category : #'Iterators-Decorators'
 }
 
 { #category : #accessing }
 InjectIntoIterator >> accumulationBlock [
-	^ accumulationBlock
+	^ self block
 ]
 
 { #category : #accessing }
 InjectIntoIterator >> accumulationBlock: anObject [
-	accumulationBlock := anObject
+	self block: anObject
 ]
 
 { #category : #private }

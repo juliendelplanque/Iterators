@@ -8,9 +8,6 @@ Such iterator will return a single object.
 Class {
 	#name : #ReduceIterator,
 	#superclass : #AggregatorIteratorDecorator,
-	#instVars : [
-		'reduceBlock'
-	],
 	#category : #'Iterators-Decorators'
 }
 
@@ -24,10 +21,10 @@ ReduceIterator >> aggregateUpToEnd [
 
 { #category : #accessing }
 ReduceIterator >> reduceBlock [
-	^ reduceBlock
+	^ self block
 ]
 
 { #category : #accessing }
 ReduceIterator >> reduceBlock: anObject [
-	reduceBlock := anObject
+	self block: anObject
 ]

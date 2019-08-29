@@ -5,7 +5,7 @@ My concrete subclasses should implement #aggregateUpToEnd to define how to aggre
 "
 Class {
 	#name : #AggregatorIteratorDecorator,
-	#superclass : #IteratorDecorator,
+	#superclass : #IteratorDecoratorWithBlock,
 	#instVars : [
 		'aggregatedValue'
 	],
