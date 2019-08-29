@@ -13,3 +13,10 @@ Integer >> limitIt [
 		limit: self;
 		yourself
 ]
+
+{ #category : #'*Iterators' }
+Integer >> skipIt [
+	^ SkipIterator new
+		count: self;
+		yourself
+]

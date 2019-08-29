@@ -1,5 +1,5 @@
 "
-I am an iterator that limit the number of objects returned by my decorated stream that my clients can access.
+I am an iterator that limit the number of objects returned by my decorated iterator that my clients can access.
 
 For example,
 
