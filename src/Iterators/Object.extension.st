@@ -20,6 +20,6 @@ Object >> depthFirstIterator: childrenBlock [
 Object >> injectItInto: aBlock [
 	^ InjectIntoIterator new
 		baseValue: self;
-		accumulationBlock: aBlock;
+		block: aBlock;
 		yourself
 ]

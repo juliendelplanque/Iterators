@@ -8,6 +8,13 @@ BlockClosure >> collectIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> detectIt [
+	^ DetectIterator new
+		block: self;
+		yourself
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> doIt [
 	^ PreActionIterator new
 			block: self;
@@ -29,7 +36,7 @@ BlockClosure >> mergeIt [
 { #category : #'*Iterators' }
 BlockClosure >> reduceIt [
 	^ ReduceIterator new
-			reduceBlock: self;
+			block: self;
 			yourself
 ]
 

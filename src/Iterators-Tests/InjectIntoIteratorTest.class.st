@@ -11,7 +11,7 @@ Class {
 InjectIntoIteratorTest >> createIteratorOn: anObject [
 	^ (InjectIntoIterator decorate: anObject)
 			baseValue: 10;
-			accumulationBlock: [ :sum :x | sum + x ];
+			block: [ :sum :x | sum + x ];
 			yourself
 ]
 

@@ -16,15 +16,5 @@ ReduceIterator >> aggregateUpToEnd [
 	aggregatedValue := self decoratedIterator next.
 	[ self decoratedIterator hasNext ]
 		whileTrue: [ 
-			aggregatedValue := self reduceBlock value: aggregatedValue value: self decoratedIterator next ]
-]
-
-{ #category : #accessing }
-ReduceIterator >> reduceBlock [
-	^ self block
-]
-
-{ #category : #accessing }
-ReduceIterator >> reduceBlock: anObject [
-	self block: anObject
+			aggregatedValue := self block value: aggregatedValue value: self decoratedIterator next ]
 ]

@@ -10,7 +10,7 @@ Class {
 { #category : #'iterator creation' }
 ReduceIteratorTest >> createIteratorOn: anObject [
 	^ (ReduceIterator decorate: anObject)
-			reduceBlock: [ :x :y | x + y ];
+			block: [ :x :y | x + y ];
 			yourself
 ]
 
