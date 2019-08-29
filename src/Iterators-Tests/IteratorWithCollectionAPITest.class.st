@@ -35,7 +35,7 @@ IteratorWithCollectionAPITest >> testAllButFirst3 [
 
 { #category : #tests }
 IteratorWithCollectionAPITest >> testAllButFirst4 [
-	self should: [ iterator allButFirst: self iteratorWalk size + 1 ] raise: IteratorIsAtEnd
+	self assert: (iterator allButFirst: self iteratorWalk size + 1) equals: #()
 ]
 
 { #category : #tests }

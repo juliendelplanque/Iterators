@@ -19,8 +19,7 @@ IteratorWithCollectionAPI >> allButFirst [
 IteratorWithCollectionAPI >> allButFirst: n [
 	"Answer an array  containing all but the first n elements.
 	 Raise an error if there are not enough elements."
-	n timesRepeat: [ self next ].
-	^ self upToEnd
+	^ (self decoratedBy: n skipIt) upToEnd
 ]
 
 { #category : #enumerating }
