@@ -7,18 +7,18 @@ Class {
 	#category : #'Iterators-Wrappers'
 }
 
-{ #category : #accessing }
-IteratorsWrapper >> expectedUpToEndSize [
-	^ (self wrappedIterators iterator
-			| #expectedUpToEndSize collectIt
-			| [ :x :y | x max: y ] reduceIt) next
-]
-
 { #category : #testing }
 IteratorsWrapper >> hasNext [
 	^ (self wrappedIterators iterator
 		| #hasNext collectIt
 		| [ :bool1 :bool2 | bool1 | bool2 ] reduceIt) next
+]
+
+{ #category : #accessing }
+IteratorsWrapper >> maximalUpToEndSize [
+	^ (self wrappedIterators iterator
+			| #maximalUpToEndSize collectIt
+			| [ :x :y | x max: y ] reduceIt) next
 ]
 
 { #category : #accessing }

@@ -36,11 +36,6 @@ LinkedListIterator >> asReverseIteratorFromCurrentLink [
 	^ ReverseLinkedListIterator on: currentLink nextLinkBlock: nextLinkBlock extractBlock: extractObjectFromLinkBlock
 ]
 
-{ #category : #accessing }
-LinkedListIterator >> expectedUpToEndSize [
-	^ Float infinity
-]
-
 { #category : #testing }
 LinkedListIterator >> hasNext [
 	^ self nextLink isNotNil
@@ -52,6 +47,11 @@ LinkedListIterator >> initializeOn: object nextLinkBlock: aBlock extractBlock: a
 	nextLinkBlock := aBlock.
 	extractObjectFromLinkBlock := anotherBlock.
 	isAtBeginning := true
+]
+
+{ #category : #accessing }
+LinkedListIterator >> maximalUpToEndSize [
+	^ Float infinity
 ]
 
 { #category : #accessing }

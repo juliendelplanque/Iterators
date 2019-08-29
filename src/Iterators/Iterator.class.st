@@ -38,13 +38,13 @@ Iterator >> decoratedIterator [
 	^ nil
 ]
 
-{ #category : #accessing }
-Iterator >> expectedUpToEndSize [
+{ #category : #testing }
+Iterator >> hasNext [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
-Iterator >> hasNext [
+{ #category : #accessing }
+Iterator >> maximalUpToEndSize [
 	^ self subclassResponsibility
 ]
 
@@ -82,7 +82,7 @@ Iterator >> upTo: size as: aCollectionClass [
 	actualSize := 0.
 	size isInfinite
 		ifTrue: [
-			expectedUpToEndSize := self expectedUpToEndSize.
+			expectedUpToEndSize := self maximalUpToEndSize.
 			expectedUpToEndSize isInfinite ifTrue: [ expectedUpToEndSize := 100 ] ]
 		ifFalse: [ expectedUpToEndSize := size ].
 	^ aCollectionClass new: expectedUpToEndSize streamContents: [ :stream |

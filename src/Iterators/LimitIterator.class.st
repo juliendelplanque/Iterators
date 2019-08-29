@@ -18,11 +18,6 @@ Class {
 	#category : #'Iterators-Decorators'
 }
 
-{ #category : #accessing }
-LimitIterator >> expectedUpToEndSize [
-	^ self limit
-]
-
 { #category : #testing }
 LimitIterator >> hasNext [
 	^ seenCount < self limit and: [ super hasNext ]
@@ -42,6 +37,11 @@ LimitIterator >> limit [
 { #category : #accessing }
 LimitIterator >> limit: anObject [
 	limit := anObject
+]
+
+{ #category : #accessing }
+LimitIterator >> maximalUpToEndSize [
+	^ self limit
 ]
 
 { #category : #accessing }

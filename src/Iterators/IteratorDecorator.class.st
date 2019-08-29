@@ -49,14 +49,14 @@ IteratorDecorator >> decoratedIteratorsIterator [
 	^ LinkedListIterator on: self nextLinkBlock: [ :iterator | iterator decoratedIterator ]
 ]
 
-{ #category : #accessing }
-IteratorDecorator >> expectedUpToEndSize [
-	^ self decoratedIterator expectedUpToEndSize
-]
-
 { #category : #testing }
 IteratorDecorator >> hasNext [
 	^ self decoratedIterator hasNext
+]
+
+{ #category : #accessing }
+IteratorDecorator >> maximalUpToEndSize [
+	^ self decoratedIterator maximalUpToEndSize
 ]
 
 { #category : #accessing }

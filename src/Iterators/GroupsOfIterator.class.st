@@ -23,14 +23,6 @@ GroupsOfIterator >> defaultGroupClass [
 ]
 
 { #category : #accessing }
-GroupsOfIterator >> expectedUpToEndSize [
-	super expectedUpToEndSize isInfinite
-		ifTrue: [ ^ super expectedUpToEndSize ].
-	
-	^ super expectedUpToEndSize // self groupSize
-]
-
-{ #category : #accessing }
 GroupsOfIterator >> groupClass [
 	^ groupClass ifNil: [ groupClass := self defaultGroupClass ]
 ]
@@ -55,6 +47,14 @@ GroupsOfIterator >> hasNext [
 	groupBuffer ifNil: [ self bufferizeNext ].
 	
 	^ groupBuffer size = self groupSize
+]
+
+{ #category : #accessing }
+GroupsOfIterator >> maximalUpToEndSize [
+	super maximalUpToEndSize isInfinite
+		ifTrue: [ ^ super maximalUpToEndSize ].
+	
+	^ super maximalUpToEndSize // self groupSize
 ]
 
 { #category : #accessing }

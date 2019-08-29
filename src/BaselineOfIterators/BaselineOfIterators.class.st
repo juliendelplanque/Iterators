@@ -13,6 +13,7 @@ BaselineOfIterators >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Iterators';
+				package: 'Iterators-Deprecated' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Tests' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];

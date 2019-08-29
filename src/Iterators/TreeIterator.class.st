@@ -22,13 +22,13 @@ TreeIterator class >> root: anObject childrenBlock: aBlock [
 		yourself
 ]
 
-{ #category : #accessing }
-TreeIterator >> expectedUpToEndSize [
-	^ Float infinity
-]
-
 { #category : #initialization }
 TreeIterator >> initializeForRoot: anObject childrenBlock: aBlock [
 	root := anObject.
 	childrenBlock := aBlock
+]
+
+{ #category : #accessing }
+TreeIterator >> maximalUpToEndSize [
+	^ Float infinity
 ]
