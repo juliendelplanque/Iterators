@@ -8,13 +8,6 @@ BlockClosure >> collectIt [
 ]
 
 { #category : #'*Iterators' }
-BlockClosure >> detectIt [
-	^ DetectIterator new
-		block: self;
-		yourself
-]
-
-{ #category : #'*Iterators' }
 BlockClosure >> doIt [
 	^ PreActionIterator new
 			block: self;
