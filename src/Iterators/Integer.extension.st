@@ -2,21 +2,15 @@ Extension { #name : #Integer }
 
 { #category : #'*Iterators' }
 Integer >> groupIt [
-	^ GroupsOfIterator new
-		groupSize: self;
-		yourself
+	^ Iterator groupIteratorFor: self
 ]
 
 { #category : #'*Iterators' }
 Integer >> limitIt [
-	^ LimitIterator new
-		limit: self;
-		yourself
+	^ Iterator limitIteratorFor: self
 ]
 
 { #category : #'*Iterators' }
 Integer >> skipIt [
-	^ SkipIterator new
-		count: self;
-		yourself
+	^ Iterator skipIteratorFor: self
 ]

@@ -2,16 +2,12 @@ Extension { #name : #Symbol }
 
 { #category : #'*Iterators' }
 Symbol >> collectIt [
-	^ CollectIterator new
-			block: self;
-			yourself
+	^ Iterator collectIteratorFor: self
 ]
 
 { #category : #'*Iterators' }
 Symbol >> doIt [
-	^ PreActionIterator new
-			block: self;
-			yourself
+	^ Iterator doIteratorFor: self
 ]
 
 { #category : #'*Iterators' }
@@ -27,14 +23,10 @@ Symbol >> reduceIt [
 
 { #category : #'*Iterators' }
 Symbol >> rejectIt [
-	^ SelectIterator new
-			block: [ :object | (self value: object) not ];
-			yourself
+	^ Iterator rejectIteratorFor: self
 ]
 
 { #category : #'*Iterators' }
 Symbol >> selectIt [
-	^ SelectIterator new
-			block: self;
-			yourself
+	^ Iterator selectIteratorFor: self
 ]

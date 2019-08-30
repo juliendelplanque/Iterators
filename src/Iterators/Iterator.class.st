@@ -11,6 +11,77 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #factory }
+Iterator class >> collectIteratorFor: aValuable [
+	^ CollectIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> doIteratorFor: aValuable [
+	^ PreActionIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> groupIteratorFor: anInteger [
+	^ GroupsOfIterator new
+		groupSize: anInteger;
+		yourself
+]
+
+{ #category : #factory }
+Iterator class >> limitIteratorFor: anInteger [
+	^ LimitIterator new
+		limit: anInteger;
+		yourself
+]
+
+{ #category : #factory }
+Iterator class >> mergeIteratorFor: aValuable [
+	^ IteratorsMerger new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> reduceIteratorFor: aValuable [
+	^ ReduceIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> rejectIteratorFor: aValuable [
+	^ SelectIterator new
+			block: [ :object | (aValuable value: object) not ];
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> selectIteratorFor: aValuable [
+	^ SelectIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> separateIteratorFor: aValuable [
+	^ PreActionIterator new
+			conditionBlock: [ :objectsSeenCount | objectsSeenCount > 0 ];
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
+Iterator class >> skipIteratorFor: anInteger [
+	^ SkipIterator new
+		count: anInteger;
+		yourself
+]
+
 { #category : #testing }
 Iterator >> atEnd [
 	"Returns true if the iterator can not provide more objects."
