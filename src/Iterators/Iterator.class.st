@@ -114,6 +114,11 @@ Iterator >> hasNext [
 	^ self subclassResponsibility
 ]
 
+{ #category : #testing }
+Iterator >> isDecorator [
+	^ false
+]
+
 { #category : #accessing }
 Iterator >> last [
 	^ (self decoratedBy: [ :x :y | y ] foldIt) next 

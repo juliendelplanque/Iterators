@@ -54,6 +54,11 @@ IteratorDecorator >> hasNext [
 	^ self decoratedIterator hasNext
 ]
 
+{ #category : #testing }
+IteratorDecorator >> isDecorator [
+	^ true
+]
+
 { #category : #accessing }
 IteratorDecorator >> maximalUpToEndSize [
 	^ self decoratedIterator maximalUpToEndSize
