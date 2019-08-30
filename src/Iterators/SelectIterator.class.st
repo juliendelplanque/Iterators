@@ -4,7 +4,9 @@ I the evalution of the #block returns true, I return the object. Else I ignore t
 "
 Class {
 	#name : #SelectIterator,
-	#superclass : #IteratorDecoratorWithBlock,
+	#superclass : #IteratorDecorator,
+	#traits : 'TIteratorDecoratorWithBlock',
+	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#category : #'Iterators-Decorators'
 }
 

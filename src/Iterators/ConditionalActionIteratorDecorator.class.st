@@ -3,7 +3,9 @@ My subclasses conditionally apply an action defined by my #block depending on th
 "
 Class {
 	#name : #ConditionalActionIteratorDecorator,
-	#superclass : #IteratorDecoratorWithBlock,
+	#superclass : #IteratorDecorator,
+	#traits : 'TIteratorDecoratorWithBlock',
+	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#instVars : [
 		'objectsSeenCount',
 		'conditionBlock'

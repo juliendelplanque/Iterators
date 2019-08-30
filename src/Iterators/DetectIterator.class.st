@@ -5,7 +5,9 @@ Once I detected an element matching my #block, I have not more objects to provid
 "
 Class {
 	#name : #DetectIterator,
-	#superclass : #IteratorDecoratorWithBlock,
+	#superclass : #IteratorDecorator,
+	#traits : 'TIteratorDecoratorWithBlock @ {#traitBlock:->#block:}',
+	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#instVars : [
 		'internalIterator',
 		'iteratorToDecorateWhenPossible'
@@ -15,7 +17,7 @@ Class {
 
 { #category : #accessing }
 DetectIterator >> block: aBlock [
-	super block: aBlock.
+	self traitBlock: aBlock.
 	self decoratedIterator: iteratorToDecorateWhenPossible
 ]
 

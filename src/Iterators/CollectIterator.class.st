@@ -3,7 +3,9 @@ I transform the object returned by #next method of the iterator I decorate using
 "
 Class {
 	#name : #CollectIterator,
-	#superclass : #IteratorDecoratorWithBlock,
+	#superclass : #IteratorDecorator,
+	#traits : 'TIteratorDecoratorWithBlock',
+	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#category : #'Iterators-Decorators'
 }
 
