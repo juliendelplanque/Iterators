@@ -24,3 +24,8 @@ NullIteratorTest >> objectToWalk [
 	"No object to walk."
 	^ nil
 ]
+
+{ #category : #tests }
+NullIteratorTest >> testLast [
+	self should: [ iterator last ] raise: IteratorIsAtEnd
+]

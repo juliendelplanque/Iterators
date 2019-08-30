@@ -115,6 +115,11 @@ Iterator >> hasNext [
 ]
 
 { #category : #accessing }
+Iterator >> last [
+	^ (self decoratedBy: [ :x :y | y ] foldIt) next 
+]
+
+{ #category : #accessing }
 Iterator >> maximalUpToEndSize [
 	^ self subclassResponsibility
 ]

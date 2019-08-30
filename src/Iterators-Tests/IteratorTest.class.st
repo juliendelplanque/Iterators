@@ -65,6 +65,13 @@ IteratorTest >> testHasNext [
 ]
 
 { #category : #tests }
+IteratorTest >> testLast [
+	self assert: iterator last equals: self iteratorWalk last.
+	
+	self should: [ iterator next ] raise: IteratorIsAtEnd
+]
+
+{ #category : #tests }
 IteratorTest >> testNext [
 	self iteratorWalk do: [ :object |
 		self assert: iterator next equals: object ].
