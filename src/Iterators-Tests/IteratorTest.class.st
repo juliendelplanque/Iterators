@@ -46,7 +46,7 @@ IteratorTest >> testAtEndNext [
 	self assert: iterator atEnd
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testDecoratedBy [
 	| decorating |
 	decorating := iterator decoratedBy: IteratorDecorator new.
@@ -88,21 +88,21 @@ IteratorTest >> testPeek [
 	self should: [ iterator peek ] raise: IteratorIsAtEnd
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testUpToAs [
 	self
 		assertCollection: (iterator upTo: (self iteratorWalk size / 2) rounded as: OrderedCollection)
 		equals: ((self iteratorWalk copyFrom: 1 to: (self iteratorWalk size / 2) rounded) as: OrderedCollection)
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testUpToEndAs [
 	self
 		assertCollection: (iterator upToEndAs: OrderedCollection)
 		equals: (self iteratorWalk as: OrderedCollection)
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testUpToEndInto [
 	| colToAdd |
 	colToAdd := OrderedCollection new.
@@ -117,7 +117,7 @@ IteratorTest >> testUpToEndInto [
 		equals: (({ 1 . 2 } , self iteratorWalk) as: OrderedCollection)
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testUpToInto [
 	| colToAdd |
 	colToAdd := OrderedCollection new.
@@ -132,7 +132,7 @@ IteratorTest >> testUpToInto [
 		equals: (({ 1 . 2 } , (self iteratorWalk copyFrom: 1 to: (self iteratorWalk size / 2) rounded)) as: OrderedCollection)
 ]
 
-{ #category : #test }
+{ #category : #tests }
 IteratorTest >> testWithCollectionAPI [
 	| withCollectionAPI |
 	withCollectionAPI := iterator withCollectionAPI.
