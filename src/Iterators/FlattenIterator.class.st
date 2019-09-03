@@ -1,3 +1,6 @@
+"
+I flatten objects coming from the iterator I wrap by iterating on their #iterator.
+"
 Class {
 	#name : #FlattenIterator,
 	#superclass : #IteratorDecorator,
