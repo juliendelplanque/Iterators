@@ -16,6 +16,7 @@ IteratorDecoratorWithInternalIterator >> buildInternalIterator [
 { #category : #accessing }
 IteratorDecoratorWithInternalIterator >> decoratedIterator [
 	"Here we lie so the clients do not realise we use multiple iterators internally."
+	internalIterator ifNil: [ ^ nil ].
 	^ [ (internalIterator decoratedIteratorsIterator decoratedBy: [ :iterator | 
 			iterator = iteratorToDecorateWhenPossible ] detectIt) next
 	] on: IteratorIsAtEnd do: [ nil ]
