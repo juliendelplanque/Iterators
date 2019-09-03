@@ -48,10 +48,11 @@ IteratorTest >> testAtEndNext [
 
 { #category : #tests }
 IteratorTest >> testDecoratedBy [
-	| decorating |
-	decorating := iterator decoratedBy: IteratorDecorator new.
+	| decorating decorator |
+	decorator := IteratorDecorator new.
+	decorating := iterator decoratedBy: decorator.
 	
-	self assert: decorating class equals: IteratorDecorator.
+	self assert: decorating equals: decorator.
 	self assert: decorating decoratedIterator equals: iterator
 ]
 
@@ -84,6 +85,16 @@ IteratorTest >> testNext [
 		self assert: iterator next equals: object ].
 	
 	self should: [ iterator next ] raise: IteratorIsAtEnd
+]
+
+{ #category : #test }
+IteratorTest >> testOutputTo [
+	| decorating decorator |
+	decorator := IteratorDecorator new.
+	decorating := iterator outputTo: decorator.
+	
+	self assert: decorating equals: decorator.
+	self assert: decorating decoratedIterator equals: iterator
 ]
 
 { #category : #tests }

@@ -141,6 +141,11 @@ Iterator >> next [
 	^ self subclassResponsibility
 ]
 
+{ #category : #'input-output' }
+Iterator >> outputTo: anIteratorDecorator [
+	^ anIteratorDecorator decorate: self
+]
+
 { #category : #accessing }
 Iterator >> peek [
 	^ self subclassResponsibility
