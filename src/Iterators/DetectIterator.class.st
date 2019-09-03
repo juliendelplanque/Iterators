@@ -6,10 +6,23 @@ Once I detected an element matching my #block, I have not more objects to provid
 Class {
 	#name : #DetectIterator,
 	#superclass : #IteratorDecoratorWithInternalIterator,
+	#traits : 'TIteratorDecoratorWithBlock @ {#traitBlock:->#block:}',
+	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#category : #'Iterators-Decorators'
 }
+
+{ #category : #accessing }
+DetectIterator >> block: aBlock [
+	self traitBlock: aBlock.
+	self decoratedIterator: iteratorToDecorateWhenPossible
+]
 
 { #category : #private }
 DetectIterator >> buildInternalIterator [
 	^ self block selectIt decoratedBy: 1 limitIt
+]
+
+{ #category : #private }
+DetectIterator >> shouldRebuildInternalIterator [
+	^ self block isNotNil
 ]

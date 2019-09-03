@@ -19,6 +19,11 @@ AggregatorIteratorDecorator >> aggregateUpToEnd [
 	self subclassResponsibility
 ]
 
+{ #category : #testing }
+AggregatorIteratorDecorator >> hasNext [
+	^ aggregatedValue isNotNil or: [ self decoratedIterator hasNext ]
+]
+
 { #category : #accessing }
 AggregatorIteratorDecorator >> next [
 	| toReturn |

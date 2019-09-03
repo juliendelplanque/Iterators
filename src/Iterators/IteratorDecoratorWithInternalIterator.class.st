@@ -1,20 +1,12 @@
 Class {
 	#name : #IteratorDecoratorWithInternalIterator,
 	#superclass : #IteratorDecorator,
-	#traits : 'TIteratorDecoratorWithBlock @ {#traitBlock:->#block:}',
-	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#instVars : [
 		'iteratorToDecorateWhenPossible',
 		'internalIterator'
 	],
 	#category : #'Iterators-Decorators'
 }
-
-{ #category : #accessing }
-IteratorDecoratorWithInternalIterator >> block: aBlock [
-	self traitBlock: aBlock.
-	self decoratedIterator: iteratorToDecorateWhenPossible
-]
 
 { #category : #private }
 IteratorDecoratorWithInternalIterator >> buildInternalIterator [
@@ -58,6 +50,11 @@ IteratorDecoratorWithInternalIterator >> peek [
 { #category : #private }
 IteratorDecoratorWithInternalIterator >> resetInternalIteratorIfPossible [
 	internalIterator := nil.
-	self block ifNil: [ ^ self ].
+	self shouldRebuildInternalIterator ifFalse: [ ^ self ].
 	internalIterator := self buildInternalIterator
+]
+
+{ #category : #private }
+IteratorDecoratorWithInternalIterator >> shouldRebuildInternalIterator [
+	^ true
 ]

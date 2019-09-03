@@ -5,7 +5,7 @@ This, I remove duplicated objects from the wrapped iterator.
 "
 Class {
 	#name : #DuplicateRemoverIterator,
-	#superclass : #IteratorDecorator,
+	#superclass : #IteratorDecoratorWithInternalIterator,
 	#instVars : [
 		'seen'
 	],
@@ -13,10 +13,9 @@ Class {
 }
 
 { #category : #accessing }
-DuplicateRemoverIterator >> decoratedIterator: anIterator [
-	^ super decoratedIterator: anIterator
-										| [ :item | seen add: item ] doIt
-										| [ :item | seen includes: item ] rejectIt
+DuplicateRemoverIterator >> buildInternalIterator [
+	^ [ :item | seen add: item ] doIt
+			decoratedBy: [ :item | seen includes: item ] rejectIt
 ]
 
 { #category : #initialization }

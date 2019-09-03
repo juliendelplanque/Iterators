@@ -56,6 +56,13 @@ IteratorTest >> testDecoratedBy [
 ]
 
 { #category : #tests }
+IteratorTest >> testDecoratedByDuplicateRemoverIterator [
+	iterator := iterator removeDuplicates.
+	
+	self assert: iterator upToEnd equals: self iteratorWalk asOrderedCollection removeDuplicates asArray
+]
+
+{ #category : #tests }
 IteratorTest >> testHasNext [
 	self iteratorWalk size timesRepeat: [ 
 		self assert: iterator hasNext.
