@@ -6,6 +6,11 @@ BlockClosure >> collectIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> detectIt [
+	^ Iterator detectIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> doIt [
 	^ Iterator doIteratorFor: self
 ]

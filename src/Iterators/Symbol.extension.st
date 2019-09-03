@@ -6,6 +6,11 @@ Symbol >> collectIt [
 ]
 
 { #category : #'*Iterators' }
+Symbol >> detectIt [
+	^ Iterator detectIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 Symbol >> doIt [
 	^ Iterator doIteratorFor: self
 ]

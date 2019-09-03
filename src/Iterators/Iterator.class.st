@@ -19,6 +19,13 @@ Iterator class >> collectIteratorFor: aValuable [
 ]
 
 { #category : #factory }
+Iterator class >> detectIteratorFor: aValuable [
+	^ DetectIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
 Iterator class >> doIteratorFor: aValuable [
 	^ PreActionIterator new
 			block: aValuable;
