@@ -12,6 +12,21 @@ Class {
 	#category : #'Iterators-Core'
 }
 
+{ #category : #'instance creation' }
+IntervalIterator class >> start: start [
+	"Create an interval iterator from [start; +infinity["
+	^ self start: start end: Float infinity
+]
+
+{ #category : #'instance creation' }
+IntervalIterator class >> start: start end: end [
+	"Create an interval iterator from [start; end]"
+	^ self new
+		start: start;
+		end: end;
+		yourself
+]
+
 { #category : #accessing }
 IntervalIterator >> end [
 	^ end

@@ -9,30 +9,26 @@ Class {
 
 { #category : #testing }
 IteratorsWrapper >> hasNext [
-	^ (self wrappedIterators iterator
-		| #hasNext collectIt
-		| [ :bool1 :bool2 | bool1 | bool2 ] reduceIt) next
+	^ ((self wrappedIterators iterator 
+			decoratedBy: #hasNext collectIt)
+				decoratedBy: [ :overallHasNext :hasNext | overallHasNext & hasNext ] reduceIt) next
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> maximalUpToEndSize [
-	^ (self wrappedIterators iterator
-			| #maximalUpToEndSize collectIt
-			| [ :x :y | x max: y ] reduceIt) next
+	^ ((self wrappedIterators iterator
+			decoratedBy: #maximalUpToEndSize collectIt)
+				decoratedBy: [ :x :y | x max: y ] reduceIt) next
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> next [
-	^ self wrappedIterators iterator
-		| #next collectIt
-		> Array
+	^ (self wrappedIterators iterator decoratedBy: #next collectIt) upToEnd
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> peek [
-	^ self wrappedIterators iterator
-		| #peek collectIt
-		> Array
+	^ (self wrappedIterators iterator decoratedBy: #peek collectIt) upToEnd
 ]
 
 { #category : #accessing }
