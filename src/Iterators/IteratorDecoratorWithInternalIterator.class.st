@@ -16,11 +16,9 @@ IteratorDecoratorWithInternalIterator >> buildInternalIterator [
 { #category : #accessing }
 IteratorDecoratorWithInternalIterator >> decoratedIterator [
 	"Here we lie so the clients do not realise we use multiple iterators internally."
-	^ internalIterator decoratedIteratorsIterator last in: [ :lastIterator |
-		lastIterator isDecorator
-			ifTrue: [ nil ]
-			ifFalse: [ lastIterator ] ]
-		
+	^ [ (internalIterator decoratedIteratorsIterator decoratedBy: [ :iterator | 
+			iterator = iteratorToDecorateWhenPossible ] detectIt) next
+	] on: IteratorIsAtEnd do: [ nil ]
 ]
 
 { #category : #accessing }
