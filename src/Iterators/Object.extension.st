@@ -8,12 +8,12 @@ Object >> anyTreeIterator: childrenBlock [
 
 { #category : #'*Iterators' }
 Object >> breadthFirstIterator: childrenBlock [
-	^ BreadthFirstIterator root: self childrenBlock: childrenBlock
+	^ (BreadthFirstIterator root: self childrenBlock: childrenBlock) withCollectionAPI
 ]
 
 { #category : #'*Iterators' }
 Object >> depthFirstIterator: childrenBlock [
-	^ DepthFirstIterator root: self childrenBlock: childrenBlock
+	^ (DepthFirstIterator root: self childrenBlock: childrenBlock) withCollectionAPI
 ]
 
 { #category : #'*Iterators' }
