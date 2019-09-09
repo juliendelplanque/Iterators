@@ -27,12 +27,12 @@ GeneratorWrapper class >> generator: generatorBlock [
 	^self new generator: generatorBlock 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 GeneratorWrapper class >> pipe: block [
 	^self new pipe: block
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 GeneratorWrapper >> decorate: inputIterator [ 
 	^ self generator: [ :gen | pipeBlock value: inputIterator value: gen ]
 ]
@@ -46,7 +46,7 @@ GeneratorWrapper >> generator: generatorBlock [
 	
 ]
 
-{ #category : #accessing }
+{ #category : #testing }
 GeneratorWrapper >> hasNext [
 	^ hasNext
 ]
@@ -72,7 +72,7 @@ GeneratorWrapper >> peek [
 	^peek
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 GeneratorWrapper >> pipe: aBlock [
 	pipeBlock := aBlock
 	
