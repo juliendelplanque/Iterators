@@ -9,6 +9,7 @@ Class {
 
 { #category : #tests }
 GeneratorWrapperTest >> testEmptyGenerator [
+	"test a generator that yields nothing - should be empty"
 	| res |
 	res := (GeneratorWrapper generator: [:gen | ]) > Array.
 	self assert: res isEmpty 
@@ -16,6 +17,7 @@ GeneratorWrapperTest >> testEmptyGenerator [
 
 { #category : #tests }
 GeneratorWrapperTest >> testFiveEvenNumbersGenerator [
+	"test a generator that does something - here produce 5 elements"
 	| res |
 	res := (GeneratorWrapper generator: [:gen | 1 to: 5 do:[:i | gen yield: i*2]]) > Array.
 	self assert: res equals: #(2 4 6 8 10)
@@ -23,6 +25,7 @@ GeneratorWrapperTest >> testFiveEvenNumbersGenerator [
 
 { #category : #tests }
 GeneratorWrapperTest >> testPipingGenerator [
+	"Test a generator used in a pipe expression."
 	| res |
 	res := ((1 to: 3) iterator
 		|

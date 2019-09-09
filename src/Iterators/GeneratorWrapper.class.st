@@ -3,11 +3,11 @@ I am a wrapper for Generators. See class comment for Generator.
 
 I am instantiated using a block in the same format as used by Generator, I instantiate the Generator, so you do not need to do that beforehand. For example:
 
-GeneratorWrapper on: [ :gen | 1 to: 10 do: [ :i | gen yield: i ] ]
+GeneratorWrapper generator: [ :gen | 1 to: 10 do: [ :i | gen yield: i ] ]
 
 returns an Iterator on the generator block. In this case a generator returning the numbers 1 to 10. 
 
-Generators  produced this way can be used in connection the | and > operators of the iterator class.
+Generators  produced using the pipe: method can be used in connection the | and > operators of the iterator class.
 
 "
 Class {
@@ -24,11 +24,13 @@ Class {
 
 { #category : #'instance creation' }
 GeneratorWrapper class >> generator: generatorBlock [
+	"return an iterator based on the generator block"
 	^self new generator: generatorBlock 
 ]
 
 { #category : #'instance creation' }
 GeneratorWrapper class >> pipe: block [
+	"returns an iterator based on the block. See the test for an example."
 	^self new pipe: block
 ]
 
