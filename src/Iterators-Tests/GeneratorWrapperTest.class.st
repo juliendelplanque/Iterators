@@ -12,7 +12,7 @@ GeneratorWrapperTest >> createIteratorOn: aGeneratorBlock [
 	"anObject is an 1 to 10 iterator"
 
 	^ (GeneratorWrapper
-		generator: aGeneratorBlock) > Array
+		generator: aGeneratorBlock)
 ]
 
 { #category : #accessing }
@@ -24,7 +24,7 @@ GeneratorWrapperTest >> iteratorWalk [
 
 { #category : #accessing }
 GeneratorWrapperTest >> objectToWalk [
-	^ [:gen | (1 to: 10) do: [:i | gen yield: i*3]]
+	^ [ :gen | 1 to: 10 do: [ :i | gen yield: i * 3 ] ]
 ]
 
 { #category : #tests }
