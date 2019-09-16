@@ -16,8 +16,7 @@ Class {
 	#instVars : [
 		'wrappedGenerator',
 		'peek',
-		'hasNext',
-		'pipeBlock'
+		'hasNext'
 	],
 	#category : #'Iterators-Wrappers'
 }
@@ -26,17 +25,6 @@ Class {
 GeneratorWrapper class >> generator: generatorBlock [
 	"return an iterator based on the generator block"
 	^self new generator: generatorBlock 
-]
-
-{ #category : #'instance creation' }
-GeneratorWrapper class >> pipe: block [
-	"returns an iterator based on the block. See the test for an example."
-	^self new pipe: block
-]
-
-{ #category : #'instance creation' }
-GeneratorWrapper >> decorate: inputIterator [ 
-	^ self generator: [ :gen | pipeBlock value: inputIterator value: gen ]
 ]
 
 { #category : #'instance creation' }
@@ -72,10 +60,4 @@ GeneratorWrapper >> next [
 GeneratorWrapper >> peek [
 	hasNext ifFalse: [ IteratorIsAtEnd signal].
 	^peek
-]
-
-{ #category : #'instance creation' }
-GeneratorWrapper >> pipe: aBlock [
-	pipeBlock := aBlock
-	
 ]
