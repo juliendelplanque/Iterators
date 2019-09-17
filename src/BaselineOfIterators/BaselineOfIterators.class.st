@@ -18,5 +18,12 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];
 				package: 'Iterators-ShellDSL' with: [ spec requires: #('Iterators') ];
-				package: 'Iterators-GTInspector' with: [ spec requires: #('Iterators') ] ]
+				package: 'Iterators-GTInspector' with: [ spec requires: #('Iterators') ].
+			
+			spec
+				group: 'core' with: #('Iterators' 'Iterators-Deprecated');
+				group: 'collections' with: #('Iterators-CollectionsExtensions');
+				group: 'shell-dsl' with: #('Iterators-ShellDSL');
+				group: 'inspector-extensions' with: #('Iterators-GTInspector');
+				group: 'tests' with: #('Iterators-Tests' 'Iterators-CollectionsExtensions-Tests') ]
 ]
