@@ -27,8 +27,3 @@ TreeIterator >> initializeForRoot: anObject childrenBlock: aBlock [
 	root := anObject.
 	childrenBlock := aBlock
 ]
-
-{ #category : #accessing }
-TreeIterator >> maximalUpToEndSize [
-	^ Float infinity
-]

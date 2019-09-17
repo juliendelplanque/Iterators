@@ -44,11 +44,6 @@ GeneratorDecorator >> hasNext [
 ]
 
 { #category : #accessing }
-GeneratorDecorator >> maximalUpToEndSize [
-	^ Float infinity
-]
-
-{ #category : #accessing }
 GeneratorDecorator >> next [
 	^ genWrapper next
 ]

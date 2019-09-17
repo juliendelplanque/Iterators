@@ -133,7 +133,13 @@ Iterator >> last [
 
 { #category : #accessing }
 Iterator >> maximalUpToEndSize [
-	^ self subclassResponsibility
+	"This method is used as the size of the collection to create when the iterators are run.
+	 Subclasses might override it if they know the expected size of the resulting collection.
+	 A good example of the usage of this method is the LimitIterator. Since this iterator limits
+	 the number of incoming objects to N (with N specified by the user),
+	 LimitIterator>>#maximalUpToEndSize returns N.
+	"
+	^ 100
 ]
 
 { #category : #accessing }
@@ -173,11 +179,9 @@ Iterator >> upTo: size as: aCollectionClass [
 		ifFalse: [ ^ self upTo: size into: aCollectionClass new ].
 	
 	actualSize := 0.
-	size isInfinite
-		ifTrue: [
-			expectedUpToEndSize := self maximalUpToEndSize.
-			expectedUpToEndSize isInfinite ifTrue: [ expectedUpToEndSize := 100 ] ]
-		ifFalse: [ expectedUpToEndSize := size ].
+	expectedUpToEndSize := size isInfinite
+		ifTrue: [ self maximalUpToEndSize ]
+		ifFalse: [ size ].
 	^ aCollectionClass new: expectedUpToEndSize streamContents: [ :stream |
 		[ self hasNext and: [ actualSize < size ] ]
 			whileTrue: [ 
