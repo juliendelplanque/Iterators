@@ -42,11 +42,6 @@ GeneratorWrapper >> hasNext [
 ]
 
 { #category : #accessing }
-GeneratorWrapper >> maximalUpToEndSize [
-	^ Float infinity
-]
-
-{ #category : #accessing }
 GeneratorWrapper >> next [
 	| next |
 	hasNext ifFalse: [ IteratorIsAtEnd signal  ].

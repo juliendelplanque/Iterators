@@ -51,9 +51,6 @@ GroupsOfIterator >> hasNext [
 
 { #category : #accessing }
 GroupsOfIterator >> maximalUpToEndSize [
-	super maximalUpToEndSize isInfinite
-		ifTrue: [ ^ super maximalUpToEndSize ].
-	
 	^ super maximalUpToEndSize // self groupSize
 ]
 

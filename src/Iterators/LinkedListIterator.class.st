@@ -50,11 +50,6 @@ LinkedListIterator >> initializeOn: object nextLinkBlock: aBlock extractBlock: a
 ]
 
 { #category : #accessing }
-LinkedListIterator >> maximalUpToEndSize [
-	^ Float infinity
-]
-
-{ #category : #accessing }
 LinkedListIterator >> next [
 	self checkHasNext.
 	currentLink := self nextLink.
