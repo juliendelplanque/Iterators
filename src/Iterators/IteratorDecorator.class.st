@@ -69,11 +69,6 @@ IteratorDecorator >> next [
 	^ self decoratedIterator next
 ]
 
-{ #category : #'input-output' }
-IteratorDecorator >> outputTo: anIteratorDecorator [
-	^ anIteratorDecorator takeAsInput: self
-]
-
 { #category : #accessing }
 IteratorDecorator >> peek [
 	^ self decoratedIterator peek
