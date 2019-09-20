@@ -4,9 +4,9 @@ Extension { #name : #Set }
 Set >> basicIterator [
 	tally = 0
 		ifTrue: [ ^ NullIterator new ].
-	^ (SequentialAccessIterator on: array)
-			| [ :object | object isNotNil ] selectIt
-			| [ :object | object enclosedSetElement ] collectIt
+	^ ((SequentialAccessIterator on: array)
+			outputTo: [ :object | object isNotNil ] selectIt)
+			outputTo: [ :object | object enclosedElement ] collectIt
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }

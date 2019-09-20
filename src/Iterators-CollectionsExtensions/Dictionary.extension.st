@@ -9,9 +9,9 @@ Dictionary >> associationsIterator [
 Dictionary >> basicAssociationsIterator [
 	tally = 0
 		ifTrue: [ ^ NullIterator new ].
-	^ (SequentialAccessIterator on: array)
-		| [ :object | object isNotNil ] selectIt
-		| [ :association | association copy ] collectIt
+	^ ((SequentialAccessIterator on: array)
+			outputTo: [ :object | object isNotNil ] selectIt)
+			outputTo: [ :association | association copy ] collectIt
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }
@@ -22,13 +22,13 @@ Dictionary >> basicIterator [
 { #category : #'*Iterators-CollectionsExtensions' }
 Dictionary >> basicKeysIterator [
 	^ self associationsIterator
-		| [ :object | object key ] collectIt
+		outputTo: [ :object | object key ] collectIt
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }
 Dictionary >> basicValuesIterator [
 	^ self associationsIterator
-		| [ :object | object value ] collectIt
+		outputTo: [ :object | object value ] collectIt
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }
