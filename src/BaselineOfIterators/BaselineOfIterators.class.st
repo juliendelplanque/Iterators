@@ -21,7 +21,9 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators-GTInspector' with: [ spec requires: #('Iterators') ].
 			
 			spec for: #'pharo7.x' do: [ 
-				spec package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators' 'Iterators-Pharo7') ] ].
+				spec
+					package: 'Iterators-Pharo7';
+					package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators' 'Iterators-Pharo7') ] ].
 			
 			spec
 				group: 'core' with: #('Iterators' 'Iterators-Deprecated');
