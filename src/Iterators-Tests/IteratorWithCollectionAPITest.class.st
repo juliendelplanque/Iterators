@@ -169,6 +169,20 @@ IteratorWithCollectionAPITest >> testDoSeparatedBy [
 ]
 
 { #category : #tests }
+IteratorWithCollectionAPITest >> testIsEmpty [
+	self deny: iterator isEmpty.
+	
+	self assert: NullIterator new withCollectionAPI isEmpty
+]
+
+{ #category : #tests }
+IteratorWithCollectionAPITest >> testIsNotEmpty [
+	self assert: iterator isNotEmpty.
+	
+	self deny: NullIterator new withCollectionAPI isNotEmpty
+]
+
+{ #category : #tests }
 IteratorWithCollectionAPITest >> testReject [
 	self
 		assertCollection: (iterator reject: [ :n | n odd ])

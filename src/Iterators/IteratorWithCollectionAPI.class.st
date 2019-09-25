@@ -168,6 +168,44 @@ IteratorWithCollectionAPI >> identityIncludes: anObject [
 ]
 
 { #category : #testing }
+IteratorWithCollectionAPI >> ifEmpty: aBlock [
+	"Evaluate the given block, answering its value if the receiver is empty, otherwise answer the receiver."
+
+	^ self isEmpty 
+		ifTrue: [ aBlock value ]
+		ifFalse: [ self ]
+]
+
+{ #category : #testing }
+IteratorWithCollectionAPI >> ifEmpty: emptyBlock ifNotEmpty: notEmptyBlock [
+	"Evaluate emptyBlock if I'm empty, notEmptyBlock otherwise"
+	"If the notEmptyBlock has an argument, eval with the receiver as its argument"
+
+	self isEmpty ifTrue: [ ^emptyBlock value ].
+	^notEmptyBlock cull: self
+]
+
+{ #category : #testing }
+IteratorWithCollectionAPI >> ifNotEmpty: aBlock [
+	"Evaluate the given block with the receiver as argument, answering its value
+    unless the receiver is empty, in which case answer the receiver."
+
+    ^self isEmpty
+          ifTrue: [self]
+          ifFalse: [aBlock cull: self] 
+
+]
+
+{ #category : #testing }
+IteratorWithCollectionAPI >> ifNotEmpty: notEmptyBlock ifEmpty: emptyBlock [
+	"Evaluate emptyBlock if I'm empty, notEmptyBlock otherwise
+	 If the notEmptyBlock has an argument, eval with the receiver as its argument"
+
+	self isEmpty ifFalse: [ ^notEmptyBlock cull: self ].
+	^emptyBlock value
+]
+
+{ #category : #testing }
 IteratorWithCollectionAPI >> includes: anObject [ 
 	"Answer whether anObject is one of the receiver's elements."
 
@@ -187,6 +225,16 @@ IteratorWithCollectionAPI >> includesAny: aCollection [
 	"Answer whether any element of aCollection is one of the receiver's elements."
 	aCollection do: [:elem | (self includes: elem) ifTrue: [^ true]].
 	^ false
+]
+
+{ #category : #testing }
+IteratorWithCollectionAPI >> isEmpty [
+	^ self atEnd
+]
+
+{ #category : #testing }
+IteratorWithCollectionAPI >> isNotEmpty [
+	^ self hasNext
 ]
 
 { #category : #testing }
