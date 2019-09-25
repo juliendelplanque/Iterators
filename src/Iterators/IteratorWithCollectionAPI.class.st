@@ -277,6 +277,22 @@ IteratorWithCollectionAPI >> select: aBlock as: aSequenceableCollectionClass [
 			ifTrue: [ stream nextPut: child ] ] ]
 ]
 
+{ #category : #sorting }
+IteratorWithCollectionAPI >> sorted [
+	
+	^ self sorted: [ :a :b| a <= b ]
+]
+
+{ #category : #sorting }
+IteratorWithCollectionAPI >> sorted: aSortBlockOrNil [
+	"Return an array which contains the same elements as self but its 
+elements are sorted by aSortBlockOrNil. The block should take two arguments and return true if 
+the first element should preceed the second one. If aSortBlock is nil then <= is used for 
+comparison."
+	
+	^self upToEnd sort: aSortBlockOrNil
+]
+
 { #category : #enumerating }
 IteratorWithCollectionAPI >> sum: aBlock [
 	"Evaluate aBlock with each of the receiver's nodes as the argument. 
