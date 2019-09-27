@@ -19,3 +19,8 @@ ReduceIteratorTest >> iteratorWalk [
 	"Returns the walk that is expected to be done by the iterator under test."
 	^ #(55)
 ]
+
+{ #category : #tests }
+ReduceIteratorTest >> testEmptyIterator [
+	self should: [ (self createIteratorOn: NullIterator new) next ] raise: IteratorIsAtEnd
+]

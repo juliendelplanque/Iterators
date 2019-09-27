@@ -20,3 +20,8 @@ InjectIntoIteratorTest >> iteratorWalk [
 	"Returns the walk that is expected to be done by the iterator under test."
 	^ #(65)
 ]
+
+{ #category : #tests }
+InjectIntoIteratorTest >> testEmptyIterator [
+	self assert: (self createIteratorOn: NullIterator new) next equals: 10
+]
