@@ -14,3 +14,8 @@ Integer >> limitIt [
 Integer >> skipIt [
 	^ Iterator skipIteratorFor: self
 ]
+
+{ #category : #'*Iterators' }
+Integer >> windowIt [
+	^ WindowIterator windowSize: self
+]
