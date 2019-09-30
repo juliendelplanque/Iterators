@@ -72,7 +72,7 @@ breadthFirstClassesHierarchyIterator := BreadthFirstIterator root: Object childr
 depthFirstClassesHierarchyIterator := DepthFirstIterator root: Object childrenBlock: #subclasses.
 ```
 
-### Iterators DSL
+### Shell DSL
 Iterators provides a DSL to deal with iterators combination.
 
 It is inspired from shell’s streams manipulation syntax:
@@ -137,6 +137,38 @@ iterator
 iterator := #(1 2 3) iterator.
 iterator
 	| 2 groupIt "Create as much groups of 2 items as possible."
+	> Array "#((1 2) (3))"
+```
+
+#### Flatten
+```Smalltalk
+iterator := #((1 2) (3)) iterator.
+iterator
+	| FlattenIterator "Flatten incoming collections."
+	> Array "#(1 2 3)"
+```
+
+#### Limit
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| 2 limitIt "Limit number of objects incoming to 2."
+	> Array "#(1 2)"
+```
+
+#### Skip
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| 2 skipIt "Skip the 2 first incoming objects."
+	> Array "#(3)"
+```
+
+#### Window
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| 2 windowIt "Creates a window of size 2."
 	> Array "#((1 2) (3))"
 ```
 
