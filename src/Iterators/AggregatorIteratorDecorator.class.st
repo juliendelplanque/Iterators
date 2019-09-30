@@ -9,7 +9,8 @@ Class {
 	#traits : 'TIteratorDecoratorWithBlock',
 	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
 	#instVars : [
-		'aggregatedValue'
+		'aggregatedValue',
+		'returnedAggregatedValue'
 	],
 	#category : #'Iterators-Decorators'
 }
@@ -21,26 +22,30 @@ AggregatorIteratorDecorator >> aggregateUpToEnd [
 
 { #category : #testing }
 AggregatorIteratorDecorator >> hasNext [
-	^ aggregatedValue isNotNil or: [ self decoratedIterator hasNext ]
+	^ returnedAggregatedValue not
+]
+
+{ #category : #initialization }
+AggregatorIteratorDecorator >> initialize [
+	super initialize.
+	returnedAggregatedValue := false
 ]
 
 { #category : #accessing }
 AggregatorIteratorDecorator >> next [
-	| toReturn |
 	self peek.
-	toReturn := aggregatedValue.
-	aggregatedValue := nil.
-	^ toReturn
+	returnedAggregatedValue := true.
+	^ aggregatedValue
 ]
 
 { #category : #accessing }
 AggregatorIteratorDecorator >> peek [
-	(self decoratedIterator hasNext and: [ aggregatedValue isNil ]) 
-		ifTrue: [ 
+	aggregatedValue
+		ifNil: [ 
 			self aggregateUpToEnd.
 			^ aggregatedValue ].
 	
-	aggregatedValue ifNotNil: [ ^ aggregatedValue ].
+	(returnedAggregatedValue not and: [ aggregatedValue isNotNil ]) ifTrue: [ ^ aggregatedValue ].
 	
 	self signalAtEnd
 ]
