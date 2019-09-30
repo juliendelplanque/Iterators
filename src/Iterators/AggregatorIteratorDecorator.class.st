@@ -32,6 +32,12 @@ AggregatorIteratorDecorator >> initialize [
 ]
 
 { #category : #accessing }
+AggregatorIteratorDecorator >> maximalUpToEndSize [
+	"Aggregators aggregate underlaying stream as a single object."
+	^ 1
+]
+
+{ #category : #accessing }
 AggregatorIteratorDecorator >> next [
 	self peek.
 	returnedAggregatedValue := true.
