@@ -9,7 +9,7 @@ Class {
 
 { #category : #'iterator creation' }
 WindowIteratorTest >> createIteratorOn: anObject [
-	^ (WindowIterator size: 2)
+	^ (WindowIterator windowSize: 2)
 			decorate: anObject
 ]
 
