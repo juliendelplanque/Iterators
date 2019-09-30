@@ -14,7 +14,8 @@ Class {
 	#instVars : [
 		'windowSize',
 		'window',
-		'reachedEnd'
+		'reachedEnd',
+		'step'
 	],
 	#category : #'Iterators-Decorators'
 }
@@ -26,6 +27,14 @@ WindowIterator class >> windowSize: windowSize [
 		yourself
 ]
 
+{ #category : #'instance creation' }
+WindowIterator class >> windowSize: windowSize step: anInteger [
+	^ self new
+		windowSize: windowSize;
+		step: anInteger;
+		yourself
+]
+
 { #category : #testing }
 WindowIterator >> hasNext [
 	^ reachedEnd not
@@ -34,6 +43,7 @@ WindowIterator >> hasNext [
 { #category : #initialization }
 WindowIterator >> initialize [
 	super initialize.
+	self step: 1.
 	reachedEnd := false
 ]
 
@@ -49,8 +59,9 @@ WindowIterator >> next [
 	toReturn := self peek.
 	self decoratedIterator hasNext
 		ifTrue: [
-			window removeFirst.
-			window addLast: self decoratedIterator next ]
+			self step timesRepeat: [
+				window removeFirst.
+				window addLast: self decoratedIterator next ] ]
 		ifFalse: [ reachedEnd := true ].
 	^ toReturn
 ]
@@ -60,6 +71,16 @@ WindowIterator >> peek [
 	self checkHasNext.
 	window ifNil: [ self initializeWindow ].
 	^ window asArray
+]
+
+{ #category : #accessing }
+WindowIterator >> step [
+	^ step
+]
+
+{ #category : #accessing }
+WindowIterator >> step: anObject [
+	step := anObject
 ]
 
 { #category : #accessing }
