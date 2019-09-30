@@ -37,6 +37,18 @@ IteratorTestsExtensionsToSystem >> testBlockClosureSelectIt [
 ]
 
 { #category : #tests }
+IteratorTestsExtensionsToSystem >> testCollectionClassDecorate [
+	self assert: ((1 to: 10) iterator outputTo: Array) equals: #(1 2 3 4 5 6 7 8 9 10).
+]
+
+{ #category : #tests }
+IteratorTestsExtensionsToSystem >> testCollectionDecorate [
+	| col |
+	col := OrderedCollection new.
+	self assert: ((1 to: 10) iterator outputTo: col) equals: #(1 2 3 4 5 6 7 8 9 10) asOrderedCollection.
+]
+
+{ #category : #tests }
 IteratorTestsExtensionsToSystem >> testSymbolCollectIt [
 	| symbol iterator |
 	symbol := #squared.
