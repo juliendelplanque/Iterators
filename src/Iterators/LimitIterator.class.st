@@ -18,6 +18,13 @@ Class {
 	#category : #'Iterators-Decorators'
 }
 
+{ #category : #'instance creation' }
+LimitIterator class >> limit: limit [
+	^ self new
+		limit: limit;
+		yourself
+]
+
 { #category : #testing }
 LimitIterator >> hasNext [
 	^ seenCount < self limit and: [ super hasNext ]
