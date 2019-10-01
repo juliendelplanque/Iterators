@@ -12,7 +12,8 @@ Class {
 
 { #category : #testing }
 FlattenIterator >> hasNext [
-	^ super hasNext or: [ subIterator isNotNil and: [ subIterator hasNext ] ]
+	self retrieveSubIteratorIfNeeded.
+	^ subIterator isNotNil and: [ subIterator hasNext ]
 ]
 
 { #category : #accessing }
@@ -29,8 +30,11 @@ FlattenIterator >> peek [
 
 { #category : #private }
 FlattenIterator >> retrieveSubIterator [
-	| retrieved |
-	retrieved := self decoratedIterator next iterator.
+	| filtered retrieved |
+	filtered := self decoratedIterator outputTo: #isEmpty rejectIt.
+	filtered hasNext
+		ifFalse: [ ^ NullIterator new ].
+	retrieved := filtered next basicIterator.
 	"Manage the case when one of the sub-collection to flatten is empty.
 	 In that case, a NullIterator is created. Such iterator will raise an IteratorIsAtEnd
 	 error when #peek or #next is called on it.
