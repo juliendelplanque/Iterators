@@ -32,3 +32,10 @@ FlattenIteratorTest >> testEmptyCollectionToFlattenWorks [
 	
 	self should: [ iterator next ] raise: IteratorIsAtEnd
 ]
+
+{ #category : #tests }
+FlattenIteratorTest >> testEmptyCollectionToFlattenWorks2 [
+	iterator := self createIteratorOn: #((1) (2) ()) iterator.
+	
+	self assert: iterator upToEnd equals: #(1 2)
+]
