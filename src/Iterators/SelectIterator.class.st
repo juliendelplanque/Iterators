@@ -7,29 +7,42 @@ Class {
 	#superclass : #IteratorDecorator,
 	#traits : 'TIteratorDecoratorWithBlock',
 	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
+	#instVars : [
+		'next'
+	],
 	#category : #'Iterators-Decorators'
 }
 
 { #category : #testing }
 SelectIterator >> hasNext [
+	next ifNotNil: [ ^ true ].
 	[ 
 		self decoratedIterator hasNext
-			ifFalse: [ ^false ].
-		self block value: self decoratedIterator peek
-	] whileFalse: [ 
-		"While select block does not return true, we ignore input of decorated iterator."
-		self decoratedIterator next ].
+			ifFalse: [
+				next := nil.
+				^false ].
+		self block value: (next := self decoratedIterator next)
+	] whileFalse.
 	^ true
 ]
 
 { #category : #accessing }
 SelectIterator >> next [
+	next ifNotNil: [ 
+		|toReturn|
+		toReturn := next.
+		next := nil.
+		^ toReturn ].
+	
 	self checkHasNext.
-	^ super next
+	^ self next
 ]
 
 { #category : #accessing }
 SelectIterator >> peek [
+	next ifNotNil: [ 
+		^ next ].
+	
 	self checkHasNext.
-	^ super peek
+	^ self peek
 ]
