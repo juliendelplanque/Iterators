@@ -29,7 +29,17 @@ FlattenIterator >> peek [
 
 { #category : #private }
 FlattenIterator >> retrieveSubIterator [
-	^ self decoratedIterator next iterator
+	| retrieved |
+	retrieved := self decoratedIterator next iterator.
+	"Manage the case when one of the sub-collection to flatten is empty.
+	 In that case, a NullIterator is created. Such iterator will raise an IteratorIsAtEnd
+	 error when #peek or #next is called on it.
+	 However, some sub-collections might need to be flattened still.
+	"
+	retrieved hasNext 
+		ifFalse: [ ^ self retrieveSubIterator ].
+		
+	^ retrieved
 ]
 
 { #category : #private }
