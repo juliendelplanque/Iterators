@@ -14,8 +14,7 @@ Class {
 
 { #category : #accessing }
 DuplicateRemoverIterator >> buildInternalIterator [
-	^ [ :item | seen add: item ] doIt
-			decoratedBy: [ :item | seen includes: item ] rejectIt
+	^ [ :item | seen add: item ] doIt outputTo: [ :item | seen includes: item ] rejectIt
 ]
 
 { #category : #initialization }
