@@ -20,7 +20,7 @@ FlattenIteratorTest >> iteratorWalk [
 
 { #category : #accessing }
 FlattenIteratorTest >> objectToWalk [
-	^ SequentialAccessIterator on: #((1 2) (3 4 5) (6 7) (8) (9 10))
+	^ SequentialAccessIterator on: #((1 2) () (3 4 5) (6 7) (8) (9 10) ())
 ]
 
 { #category : #tests }
@@ -31,4 +31,11 @@ FlattenIteratorTest >> testEmptyCollectionToFlattenWorks [
 	self assert: iterator next equals: 2.
 	
 	self should: [ iterator next ] raise: IteratorIsAtEnd
+]
+
+{ #category : #tests }
+FlattenIteratorTest >> testEmptyCollectionToFlattenWorks2 [
+	iterator := self createIteratorOn: #((1) (2) ()) iterator.
+	
+	self assert: iterator upToEnd equals: #(1 2)
 ]
