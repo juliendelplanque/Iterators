@@ -11,10 +11,10 @@ Class {
 
 { #category : #accessing }
 CollectIterator >> next [
-	^ self block value: super next
+	^ self block value: self decoratedIterator next
 ]
 
 { #category : #accessing }
 CollectIterator >> peek [
-	^ self block value: super peek
+	^ self block value: self decoratedIterator peek
 ]
