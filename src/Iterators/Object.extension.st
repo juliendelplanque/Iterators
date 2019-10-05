@@ -23,3 +23,8 @@ Object >> injectItInto: aBlock [
 		block: aBlock;
 		yourself
 ]
+
+{ #category : #'*Iterators' }
+Object >> iteratorShouldSplit: anObject [
+	^ self = anObject
+]

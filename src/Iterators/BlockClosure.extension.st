@@ -21,6 +21,11 @@ BlockClosure >> foldIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> iteratorShouldSplit: anObject [
+	^ self value: anObject
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> mergeIt [
 	^ Iterator mergeIteratorFor: self
 ]
