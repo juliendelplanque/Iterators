@@ -1,3 +1,6 @@
+"
+I am an iterator that bufferize at least a subset of objects incoming from decorated stream.
+"
 Class {
 	#name : #BufferizedIterator,
 	#superclass : #IteratorDecorator,
