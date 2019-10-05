@@ -11,7 +11,7 @@ Class {
 
 { #category : #testing }
 UntilIterator >> hasNext [
-	^ (self block value: self decoratedIterator peek) not
+	^ self decoratedIterator hasNext and: [ (self block value: self decoratedIterator peek) not ]
 ]
 
 { #category : #accessing }
