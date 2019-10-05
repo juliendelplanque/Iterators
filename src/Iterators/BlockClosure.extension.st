@@ -26,6 +26,11 @@ BlockClosure >> mergeIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> piecesCutWhereIt [
+	^ Iterator piecesCutWhereIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> reduceIt [
 	^ Iterator reduceIteratorFor: self
 ]

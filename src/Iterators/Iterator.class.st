@@ -54,6 +54,11 @@ Iterator class >> mergeIteratorFor: aValuable [
 ]
 
 { #category : #factory }
+Iterator class >> piecesCutWhereIteratorFor: aValuableWithTwoArguments [
+	^ PiecesCutWhereIterator block: aValuableWithTwoArguments
+]
+
+{ #category : #factory }
 Iterator class >> reduceIteratorFor: aValuable [
 	^ ReduceIterator new
 			block: aValuable;
