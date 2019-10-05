@@ -6,6 +6,10 @@
 
 Implements Iterators for Pharo's Collections.
 
+- [Install](#install)
+- [Documentation](#documentation)
+- [Version management](#version-management)
+
 ## Install
 ```Smalltalk
 Metacello new
