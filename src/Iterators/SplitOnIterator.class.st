@@ -1,6 +1,7 @@
 "
 I create groups from incoming objects.
 Those groups are delimited by my #objectToSplitOn.
+Incoming objects matching #objectToSplitOn are not included in the groups I produce.
 "
 Class {
 	#name : #SplitOnIterator,

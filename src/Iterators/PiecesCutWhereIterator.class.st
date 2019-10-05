@@ -1,3 +1,8 @@
+"
+I create groups from incoming objects.
+Those groups are delimited by my two-arguments block.
+If the block is evaluated to true for two sequential incoming objects, a group finishes there and another one starts.
+"
 Class {
 	#name : #PiecesCutWhereIterator,
 	#superclass : #BufferizedIterator,
