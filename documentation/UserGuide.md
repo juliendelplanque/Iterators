@@ -1,8 +1,37 @@
 # User documentation of Iterators
+This page contains the user documentation of Iterators project.
 
-### Iterators
+- [Iterators](#iterators)
+  * [Collections](#collections)
+  * [Trees](#trees)
+- [Shell DSL](#shell-dsl)
+- [Iterator Decorators](#iterator-decorators)
+  * [Do](#do)
+  * [Collect](#collect)
+  * [Select](#select)
+  * [Reject](#reject)
+  * [Inject into](#inject-into)
+  * [Reduce](#reduce)
+  * [Groups of](#groups-of)
+  * [Flatten](#flatten)
+  * [Limit](#limit)
+  * [Skip](#skip)
+  * [Window](#window)
+- [Chaining Iterator Decorators](#chaining-iterator-decorators)
+- [Discarding Output](#discarding-output)
+- [Iterator Wrappers](#iterator-wrappers)
 
-#### Collections
+## Iterators
+An iterator is an object that understand 3 messages:
+
+- `#hasNext` - Returns `true` if the iterator has a next object to provide. Else it returns false.
+- `#peek` - Returns the next object without actually doing the iteration. Raises an `IteratorIsAtEnd` error if no next object is available.
+- `#next` - Returns the next object in the iteration. Raises an `IteratorIsAtEnd` error if no next object is available.
+
+> When an iterator reaches the end of the object it iterates on, an `IteratorIsAtEnd` error is signalled.
+
+Here is an example of Iterators API usage:
+
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator hasNext. "true"
@@ -14,15 +43,9 @@ iterator hasNext. "false"
 iterator next. "Raises IteratorIsAtEnd error"
 ```
 
-```Smalltalk
-iterator := #(1 2 3) iterator.
-iterator upToEnd. "#(1 2 3)"
-```
+Additionally, an iterator can retrieve all the objects it will iterate on via `#upToXXX` messages familly:
 
-```Smalltalk
-iterator := #(1 2 3) iterator.
-iterator upToEndAs: OrderedCollection. "an OrderedCollection(1 2 3)"
-```
+- `#upToEndInto:` - Fills the collection provided as argument with the objects to iterate on.
 
 ```Smalltalk
 iterator := #(1 2 3) iterator.
@@ -31,10 +54,53 @@ iterator upToEndInto: set.
 set "a Set(1 2 3)"
 ```
 
+- `#upTo:into:` - Fills the collection provided as second argument with the n (provided as first argument) next objects to iterate on.
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+set := Set new.
+iterator upTo: 2 into: set.
+set "a Set(1 2)"
+```
+
+- `#upToEnd` - Creates an array and fill it with objects to iterate on.
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator upToEnd. "#(1 2 3)"
+```
+
+- `#upToEndAs:` - Instantiate the class provided as argument and fill it with the objects to iterate on.
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator upToEndAs: OrderedCollection. "an OrderedCollection(1 2 3)"
+```
+
+- `#upTo:as:` - Instantiate the class provided as argument and fill it with the n (provided as first argument) objects to iterate on.
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator upTo: 2 as: OrderedCollection. "an OrderedCollection(1 2)"
+```
+
+- `#upToEndDiscardingResult` - Iterate on the objects to iterate on and discard the result.
+
+
+### Collections
+Iterators project adds extension methods to Collection objects.
+It is always possible to get an `#iterator` from any Collection Pharo provides.
+
 ```Smalltalk
 set := Set withAll: #(1 2 3 3 2 1).
 setIterator := set iterator. "The order in which objects will be provided is not defined."
 ```
+
+The `#iterator` message does not return a "pure" iterator, it returns an iterator that understand Collection API.
+This allows one to create methods returning iterator but, clients of these methods can use them as a collection.
+To get a pure iterator, send `#basicIterator`.
+
+Some collections implement multiple `#basicXXXIterator` and `#XXXIterator` message because one can iterate on them in multiple them.
 
 ```Smalltalk
 dict := Dictionary new
@@ -46,16 +112,23 @@ valuesIterator := dict valuesIterator.
 associationsIterator := dict associationsIterator
 ```
 
-#### Iterator With Collection API
-
-#### Trees
+### Trees
+Iterators project provide iterators for trees.
+In the following example, one iterator iterate on object and its subclasses breadth-first and the second does it depth-first.
 
 ```Smalltalk
 breadthFirstClassesHierarchyIterator := BreadthFirstIterator root: Object childrenBlock: #subclasses.
 depthFirstClassesHierarchyIterator := DepthFirstIterator root: Object childrenBlock: #subclasses.
 ```
 
-### Shell DSL
+It is possible to use such iterator on any tree induced by the references between objects in the system.
+One simply need to specify the tree `root` and a `block` or symbol to access the children from any node of the tree.
+
+```Smalltalk
+BreadthFirstIterator root: root childrenBlock: block.
+```
+
+## Shell DSL
 Iterators provides a DSL to deal with iterators combination.
 
 It is inspired from shell’s streams manipulation syntax:
@@ -64,10 +137,10 @@ It is inspired from shell’s streams manipulation syntax:
 - The `>` operator allows one to create a new collection with data transformed through chained iterators
 - The `>>` operator allows one to fill an existing collection with data transformed through chained iterators
 
-### Iterator Decorators
+## Iterator Decorators
 It is possible to decorate it with an `IteratorDecorator` to apply transformations and/or process on incoming data.
 
-#### Do
+### Do
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -75,7 +148,7 @@ iterator
 	> Array "#(1 2 3)"
 ```
 
-#### Collect
+### Collect
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -83,7 +156,7 @@ iterator
 	> Array "(2 4 6)"
 ```
 
-#### Select
+### Select
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -91,7 +164,7 @@ iterator
 	> Array "#(1 3)"
 ```
 
-#### Reject
+### Reject
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -99,7 +172,7 @@ iterator
 	> Array "#(2)"
 ```
 
-#### Inject into
+### Inject into
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -107,7 +180,7 @@ iterator
 	> Array "#(16)"
 ```
 
-#### Reduce
+### Reduce
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -115,7 +188,7 @@ iterator
 	> Array "#(6)"
 ```
 
-#### Groups of
+### Groups of
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -123,7 +196,7 @@ iterator
 	> Array "#((1 2) (3))"
 ```
 
-#### Flatten
+### Flatten
 ```Smalltalk
 iterator := #((1 2) (3)) iterator.
 iterator
@@ -131,7 +204,7 @@ iterator
 	> Array "#(1 2 3)"
 ```
 
-#### Limit
+### Limit
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -139,7 +212,7 @@ iterator
 	> Array "#(1 2)"
 ```
 
-#### Skip
+### Skip
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -147,7 +220,7 @@ iterator
 	> Array "#(3)"
 ```
 
-#### Window
+### Window
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -155,7 +228,7 @@ iterator
 	> Array "#((1 2) (3))"
 ```
 
-### Chaining Iterator Decorators
+## Chaining Iterator Decorators
 
 ```Smalltalk
 iterator := #(1 2 3) iterator.
@@ -165,7 +238,7 @@ iterator
 	> Array "#(12)"
 ````
 
-### Discarding Output
+## Discarding Output
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
@@ -174,5 +247,5 @@ iterator
 	> NullAddableObject "Special object that ignore incoming objects."
 ```
 
-### Iterator Wrappers
+## Iterator Wrappers
 > TODO
