@@ -228,6 +228,22 @@ iterator
 	> Array "#((1 2) (3))"
 ```
 
+### Until
+```Smalltalk
+iterator := #(1 3 2) iterator.
+iterator
+	| [ :x | x even ] untilIt "Returns incoming objects while no even integer is encountered"
+	> Array "#(1 3)"
+```
+
+### Pieces cut where
+```Smalltalk
+iterator := #(1 2 3 1 6 1 2 3 4) iterator.
+iterator
+	| [ :a :b | a = 2 and: [ b = 3 ] ] piecesCutWhereIt "Cut the sequence of incoming objects if a 2 is followed by a 3."
+	> Array "#(#(1 2) #(3 1 6 1 2) #(3 4))"
+```
+
 ## Chaining Iterator Decorators
 
 ```Smalltalk
