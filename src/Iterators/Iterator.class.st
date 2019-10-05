@@ -89,6 +89,16 @@ Iterator class >> skipIteratorFor: anInteger [
 		yourself
 ]
 
+{ #category : #factory }
+Iterator class >> untilIteratorFor: aValuable [
+	^ UntilIterator block: aValuable
+]
+
+{ #category : #factory }
+Iterator class >> windowIteratorFor: anInteger [
+	^ WindowIterator windowSize: self
+]
+
 { #category : #testing }
 Iterator >> atEnd [
 	"Returns true if the iterator can not provide more objects."

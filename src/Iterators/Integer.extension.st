@@ -17,5 +17,5 @@ Integer >> skipIt [
 
 { #category : #'*Iterators' }
 Integer >> windowIt [
-	^ WindowIterator windowSize: self
+	^ Iterator windowIteratorFor: self
 ]

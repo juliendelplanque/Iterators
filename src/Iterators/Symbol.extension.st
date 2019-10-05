@@ -35,3 +35,8 @@ Symbol >> rejectIt [
 Symbol >> selectIt [
 	^ Iterator selectIteratorFor: self
 ]
+
+{ #category : #'*Iterators' }
+Symbol >> untilIt [
+	^ Iterator untilIteratorFor: self
+]

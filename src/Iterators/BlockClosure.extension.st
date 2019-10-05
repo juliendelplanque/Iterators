@@ -44,3 +44,8 @@ BlockClosure >> selectIt [
 BlockClosure >> separateIt [
 	^ Iterator separateIteratorFor: self
 ]
+
+{ #category : #'*Iterators' }
+BlockClosure >> untilIt [
+	^ Iterator untilIteratorFor: self
+]
