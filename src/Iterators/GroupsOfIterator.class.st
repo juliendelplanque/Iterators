@@ -3,18 +3,17 @@ I provide a behaviour similar to SequenceableCollection>>#groupsOf:atATimeCollec
 "
 Class {
 	#name : #GroupsOfIterator,
-	#superclass : #IteratorDecorator,
+	#superclass : #BufferizedIterator,
 	#instVars : [
 		'groupClass',
-		'groupSize',
-		'groupBuffer'
+		'groupSize'
 	],
 	#category : #'Iterators-Decorators'
 }
 
 { #category : #private }
 GroupsOfIterator >> bufferizeNext [
-	groupBuffer := self decoratedIterator upTo: self groupSize as: self groupClass
+	buffer := self decoratedIterator upTo: self groupSize as: self groupClass
 ]
 
 { #category : #accessing }
@@ -44,27 +43,12 @@ GroupsOfIterator >> groupSize: anObject [
 
 { #category : #testing }
 GroupsOfIterator >> hasNext [
-	groupBuffer ifNil: [ self bufferizeNext ].
+	buffer ifNil: [ self bufferizeNext ].
 	
-	^ groupBuffer size = self groupSize
+	^ buffer size = self groupSize
 ]
 
 { #category : #accessing }
 GroupsOfIterator >> maximalUpToEndSize [
 	^ super maximalUpToEndSize // self groupSize
-]
-
-{ #category : #accessing }
-GroupsOfIterator >> next [
-	self checkHasNext.
-	^ [ groupBuffer ]
-		ensure: [ groupBuffer := nil ]
-]
-
-{ #category : #accessing }
-GroupsOfIterator >> peek [
-	self hasNext
-		ifFalse: [ self signalAtEnd ].
-		
-	^ groupBuffer
 ]

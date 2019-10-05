@@ -96,7 +96,7 @@ Iterator class >> untilIteratorFor: aValuable [
 
 { #category : #factory }
 Iterator class >> windowIteratorFor: anInteger [
-	^ WindowIterator windowSize: self
+	^ WindowIterator windowSize: anInteger
 ]
 
 { #category : #testing }
