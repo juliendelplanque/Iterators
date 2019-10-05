@@ -9,26 +9,25 @@ Class {
 
 { #category : #testing }
 IteratorsWrapper >> hasNext [
-	^ ((self wrappedIterators iterator 
-			decoratedBy: #hasNext collectIt)
-				decoratedBy: [ :overallHasNext :hasNext | overallHasNext & hasNext ] reduceIt) next
+	^ (self wrappedIterators iterator 
+			outputTo: #hasNext selectIt) hasNext
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> maximalUpToEndSize [
 	^ ((self wrappedIterators iterator
-			decoratedBy: #maximalUpToEndSize collectIt)
-				decoratedBy: [ :x :y | x max: y ] reduceIt) next
+			outputTo: #maximalUpToEndSize collectIt)
+				outputTo: [ :x :y | x max: y ] reduceIt) next
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> next [
-	^ (self wrappedIterators iterator decoratedBy: #next collectIt) upToEnd
+	^ (self wrappedIterators iterator outputTo: #next collectIt) upToEnd
 ]
 
 { #category : #accessing }
 IteratorsWrapper >> peek [
-	^ (self wrappedIterators iterator decoratedBy: #peek collectIt) upToEnd
+	^ (self wrappedIterators iterator outputTo: #peek collectIt) upToEnd
 ]
 
 { #category : #accessing }
