@@ -16,6 +16,11 @@ Integer >> skipIt [
 ]
 
 { #category : #'*Iterators' }
+Integer >> splitOnIt [
+	^ Iterator splitOnIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 Integer >> windowIt [
 	^ Iterator windowIteratorFor: self
 ]

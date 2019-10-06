@@ -95,6 +95,11 @@ Iterator class >> skipIteratorFor: anInteger [
 ]
 
 { #category : #factory }
+Iterator class >> splitOnIteratorFor: objectToSplitOn [
+	^ SplitOnIterator objectToSplitOn: objectToSplitOn
+]
+
+{ #category : #factory }
 Iterator class >> untilIteratorFor: aValuable [
 	^ UntilIterator block: aValuable
 ]
