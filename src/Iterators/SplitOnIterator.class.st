@@ -8,7 +8,8 @@ Class {
 	#superclass : #BufferizedIterator,
 	#instVars : [
 		'objectToSplitOn',
-		'firstTimeAtEnd'
+		'firstTimeAtEnd',
+		'splittedOnLastObject'
 	],
 	#category : #'Iterators-Decorators'
 }
@@ -28,7 +29,9 @@ SplitOnIterator >> bufferizeNext [
 			firstTimeAtEnd
 				ifTrue: [
 					firstTimeAtEnd := false.
-					buffer := #() ]
+					splittedOnLastObject
+						ifTrue: [ buffer := #() ]
+						ifFalse: [ buffer := nil ] ]
 				ifFalse: [ buffer := nil ].
 			^ self ].
 	
@@ -37,8 +40,11 @@ SplitOnIterator >> bufferizeNext [
 	
 	buffer := untilIterator upToEnd.
 	self decoratedIterator hasNext
-		ifFalse: [ ^ self ].
+		ifFalse: [ 
+			^ self ].
 	self decoratedIterator next.
+	self decoratedIterator hasNext
+		ifFalse: [ splittedOnLastObject := true ].
 ]
 
 { #category : #testing }
@@ -52,6 +58,7 @@ SplitOnIterator >> hasNext [
 SplitOnIterator >> initialize [
 	super initialize.
 	firstTimeAtEnd := true.
+	splittedOnLastObject := false.
 ]
 
 { #category : #accessing }
