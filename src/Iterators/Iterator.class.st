@@ -109,6 +109,11 @@ Iterator class >> windowIteratorFor: anInteger [
 	^ WindowIterator windowSize: anInteger
 ]
 
+{ #category : #factory }
+Iterator class >> windowIteratorFor: anInteger step: step [
+	^ WindowIterator windowSize: anInteger step: step
+]
+
 { #category : #testing }
 Iterator >> atEnd [
 	"Returns true if the iterator can not provide more objects."

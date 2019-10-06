@@ -24,3 +24,8 @@ Integer >> splitOnIt [
 Integer >> windowIt [
 	^ Iterator windowIteratorFor: self
 ]
+
+{ #category : #'*Iterators' }
+Integer >> windowItStep: step [
+	^ Iterator windowIteratorFor: self step: step
+]
