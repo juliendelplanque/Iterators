@@ -1,3 +1,6 @@
+"
+I am an iterator that wrap a Stream understanding #nextLine.
+"
 Class {
 	#name : #LineStreamIterator,
 	#superclass : #StreamIterator,

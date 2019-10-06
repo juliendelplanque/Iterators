@@ -1,3 +1,7 @@
+"
+I am an iterator that wrap a Stream.
+I allow one to use all the power of iterator decorators over (read) streams.
+"
 Class {
 	#name : #StreamIterator,
 	#superclass : #Iterator,
