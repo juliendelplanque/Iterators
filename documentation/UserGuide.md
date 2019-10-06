@@ -17,6 +17,7 @@ This page contains the user documentation of Iterators project.
   * [Limit](#limit)
   * [Skip](#skip)
   * [Window](#window)
+  * [Split on](#split-on)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
@@ -242,6 +243,21 @@ iterator := #(1 2 3 1 6 1 2 3 4) iterator.
 iterator
 	| [ :a :b | a = 2 and: [ b = 3 ] ] piecesCutWhereIt "Cut the sequence of incoming objects if a 2 is followed by a 3."
 	> Array "#(#(1 2) #(3 1 6 1 2) #(3 4))"
+```
+
+### Split on
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| 2 splitOnIt
+	> Array "#((1) (3))"
+```
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x | x = 2 ] splitOnIt
+	> Array "#((1) (3))"
 ```
 
 ## Chaining Iterator Decorators
