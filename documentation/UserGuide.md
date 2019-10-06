@@ -17,10 +17,13 @@ This page contains the user documentation of Iterators project.
   * [Limit](#limit)
   * [Skip](#skip)
   * [Window](#window)
+  * [Until](#until)
+  * [Pieces cut where](#pieces-cut-where)
   * [Split on](#split-on)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
+
 
 ## Iterators
 An iterator is an object that understand 3 messages:
