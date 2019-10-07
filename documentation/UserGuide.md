@@ -20,6 +20,7 @@ This page contains the user documentation of Iterators project.
   * [Until](#until)
   * [Pieces cut where](#pieces-cut-where)
   * [Split on](#split-on)
+  * [Sort](#sort)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
@@ -261,6 +262,21 @@ iterator := #(1 2 3) iterator.
 iterator
 	| [ :x | x = 2 ] splitOnIt
 	> Array "#((1) (3))"
+```
+
+### Sort
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| #yourself descending sortIt "Use sort function to sort incoming objects from greater to smaller."
+	> Array "#(3 2 1)"
+```
+
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| [ :x :y | x >= y ] sortIt "Or use two-arguments block to sort incoming objects from greater to smaller."
+	> Array "#(3 2 1)"
 ```
 
 ## Chaining Iterator Decorators
