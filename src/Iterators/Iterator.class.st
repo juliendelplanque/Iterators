@@ -95,6 +95,13 @@ Iterator class >> skipIteratorFor: anInteger [
 ]
 
 { #category : #factory }
+Iterator class >> sortIteratorFor: aSortObject [
+	^ SortIterator new
+			block: aSortObject;
+			yourself
+]
+
+{ #category : #factory }
 Iterator class >> splitOnIteratorFor: objectToSplitOn [
 	^ SplitOnIterator objectToSplitOn: objectToSplitOn
 ]

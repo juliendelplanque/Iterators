@@ -56,6 +56,11 @@ BlockClosure >> separateIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> sortIt [
+	^ Iterator sortIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> splitOnIt [
 	^ Iterator splitOnIteratorFor: self
 ]

@@ -50,7 +50,9 @@ IntervalIterator >> initialize [
 
 { #category : #accessing }
 IntervalIterator >> maximalUpToEndSize [
-	^ self end - self start
+	^ self end isInfinite
+		ifTrue: [ super maximalUpToEndSize ]
+		ifFalse: [ self end - self start ]
 ]
 
 { #category : #accessing }
