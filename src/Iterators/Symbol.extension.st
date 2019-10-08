@@ -16,6 +16,11 @@ Symbol >> doIt [
 ]
 
 { #category : #'*Iterators' }
+Symbol >> flatCollectIt [
+	^ Iterator flatCollectIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 Symbol >> foldIt [
 	^ self reduceIt
 ]

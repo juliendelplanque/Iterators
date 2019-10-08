@@ -33,6 +33,13 @@ Iterator class >> doIteratorFor: aValuable [
 ]
 
 { #category : #factory }
+Iterator class >> flatCollectIteratorFor: aValuable [
+	^ FlatCollectIterator new
+			block: aValuable;
+			yourself
+]
+
+{ #category : #factory }
 Iterator class >> groupIteratorFor: anInteger [
 	^ GroupsOfIterator new
 		groupSize: anInteger;

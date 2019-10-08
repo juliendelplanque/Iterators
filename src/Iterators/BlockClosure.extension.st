@@ -16,6 +16,11 @@ BlockClosure >> doIt [
 ]
 
 { #category : #'*Iterators' }
+BlockClosure >> flatCollectIt [
+	^ Iterator flatCollectIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 BlockClosure >> foldIt [
 	^	self reduceIt
 ]
