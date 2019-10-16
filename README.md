@@ -7,6 +7,7 @@
 Implements Iterators for Pharo's Collections.
 
 - [Install](#install)
+- [Add Iterators as a dependency of your project](#add-iterators-as-a-dependency-of-your-project)
 - [Documentation](#documentation)
 - [Version management](#version-management)
 
@@ -17,6 +18,19 @@ Metacello new
 	repository: 'github://juliendelplanque/Iterators/src';
 	load
 ```
+
+## Add Iterators as a dependency of your project
+To depend on Iterators `v1` major version, insert the following code snippet in your baseline:
+
+```Smalltalk
+[...]
+spec
+	baseline: 'Iterators'
+	with: [ spec repository: 'github://juliendelplanque/Iterators:v1.x.x/src'].
+[...]
+```
+
+To depend on a specific minor / patch version, tweak to `v1.x.x` fit your needs (for example `v1.2.0`).
 
 ## Documentation
 
