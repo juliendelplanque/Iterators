@@ -17,6 +17,9 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators-Tests' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];
+				package: 'Iterators-Streams' with: [ spec requires: #('Iterators') ];
+				package: 'Iterators-Streams-StreamsExtensions' with: [ spec requires: #('Iterators-Streams') ];
+				package: 'Iterators-Streams-ZincStreamsExtensions' with: [ spec requires: #('Iterators-Streams') ];
 				package: 'Iterators-ShellDSL' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-GTInspector' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Benchmarks' with: [ spec requires: #('Iterators') ].
@@ -30,6 +33,8 @@ BaselineOfIterators >> baseline: spec [
 				group: 'core' with: #('Iterators' 'Iterators-Deprecated');
 				group: 'collections' with: #('Iterators-CollectionsExtensions');
 				group: 'shell-dsl' with: #('Iterators-ShellDSL');
+				group: 'streams' with: #('Iterators-Streams' 'Iterators-Streams-StreamsExtensions');
+				group: 'streams-zinc' with: #('streams' 'Iterators-Streams-ZincStreamsExtensions');
 				group: 'inspector-extensions' with: #('Iterators-GTInspector');
 				group: 'tests' with: #('Iterators-Tests' 'Iterators-CollectionsExtensions-Tests');
 				group: 'benchmarks' with: #('Iterators-Benchmarks') ]
