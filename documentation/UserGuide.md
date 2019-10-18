@@ -327,7 +327,7 @@ line3
 line4
 ```
 
-One can get a read stream wrapped by an iterator for this file like this
+One can get a read stream wrapped by a **character iterator** for this file like this
 
 ```Smalltalk
 (FileLocator temp / 'example.txt') readStreamDo: [ :stream |
@@ -343,7 +343,7 @@ LINE3
 LINE4'"
 ```
 
-One can also get a line iterator as follow.
+One can also get a **line iterator** as follow.
 
 ```Smalltalk
 (FileLocator temp / 'example.txt') readStreamDo: [ :stream |
@@ -353,4 +353,16 @@ One can also get a line iterator as follow.
 	iterator
 		| [ :line | line size ] collectIt
 		> Array ] "#(5 5 5 5)"
+```
+
+It is also possible to iterator over **bytes** if the underlaying stream is a binary stream.
+
+```Smalltalk
+(FileLocator temp / 'example.txt') binaryReadStreamDo: [ :stream |
+	|iterator|
+	iterator := stream iterator.
+	"Transform incoming bytes via iterator decorators."
+	iterator
+		| #bitXor: reduceIt
+		> Array ] "#(9)"
 ```
