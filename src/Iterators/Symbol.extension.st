@@ -26,6 +26,11 @@ Symbol >> foldIt [
 ]
 
 { #category : #'*Iterators' }
+Symbol >> groupedByIt [
+	^ Iterator groupedByIteratorFor: self
+]
+
+{ #category : #'*Iterators' }
 Symbol >> reduceIt [
 	^ [ :object :anotherObject |
 		object perform: self with: anotherObject ] reduceIt

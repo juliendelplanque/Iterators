@@ -40,7 +40,14 @@ Iterator class >> flatCollectIteratorFor: aValuable [
 ]
 
 { #category : #factory }
-Iterator class >> groupIteratorFor: anInteger [
+Iterator class >> groupedByIteratorFor: aValuable [
+	^ GroupedByIterator new
+		block: aValuable;
+		yourself
+]
+
+{ #category : #factory }
+Iterator class >> groupsOfIteratorFor: anInteger [
 	^ GroupsOfIterator new
 		groupSize: anInteger;
 		yourself
