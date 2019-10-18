@@ -21,6 +21,7 @@ This page contains the user documentation of Iterators project.
   * [Pieces cut where](#pieces-cut-where)
   * [Split on](#split-on)
   * [Sort](#sort)
+  * [Grouped by](#grouped-by)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
@@ -277,6 +278,14 @@ iterator := #(1 2 3) iterator.
 iterator
 	| [ :x :y | x >= y ] sortIt "Or use two-arguments block to sort incoming objects from greater to smaller."
 	> Array "#(3 2 1)"
+```
+
+### Grouped by
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| #odd groupedByIt "Groups the integer into 2 groups: true if the number is odd, false if it is even."
+	> Array "{true->#(1 3). false->#(2)}"
 ```
 
 ## Chaining Iterator Decorators
