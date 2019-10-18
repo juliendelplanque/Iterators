@@ -21,9 +21,11 @@ This page contains the user documentation of Iterators project.
   * [Pieces cut where](#pieces-cut-where)
   * [Split on](#split-on)
   * [Sort](#sort)
+  * [Grouped by](#grouped-by)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
+- [Integration with Streams](#integration-with-streams)
 
 
 ## Iterators
@@ -279,6 +281,14 @@ iterator
 	> Array "#(3 2 1)"
 ```
 
+### Grouped by
+```Smalltalk
+iterator := #(1 2 3) iterator.
+iterator
+	| #odd groupedByIt "Groups the integer into 2 groups: true if the number is odd, false if it is even."
+	> Array "{true->#(1 3). false->#(2)}"
+```
+
 ## Chaining Iterator Decorators
 
 ```Smalltalk
@@ -300,3 +310,47 @@ iterator
 
 ## Iterator Wrappers
 > TODO
+
+## Integration with Streams
+The project provides an integration with both Pharo streams and Zinc streams.
+That is to say, it is possible to wrap a stream in an iterator in order to profit from iterator decorators.
+
+The api to get an iterator from a stream is similar to the one to get an iterator from a collection.
+Simply send `#basicIterator` or `#iterator` message depending on your needs.
+
+Consider the following file located at `/tmp/example.txt`
+
+```
+line1
+line2
+line3
+line4
+```
+
+One can get a read stream wrapped by an iterator for this file like this
+
+```Smalltalk
+(FileLocator temp / 'example.txt') readStreamDo: [ :stream |
+	|iterator|
+	iterator := stream iterator.
+	"Transform incoming characters via iterator decorators."
+	iterator
+		| [ :c | c asUppercase ] collectIt
+		> String ] 
+"'LINE1
+LINE2
+LINE3
+LINE4'"
+```
+
+One can also get a line iterator as follow.
+
+```Smalltalk
+(FileLocator temp / 'example.txt') readStreamDo: [ :stream |
+	|iterator|
+	iterator := stream lineIterator.
+	"Transform incoming lines via iterator decorators."
+	iterator
+		| [ :line | line size ] collectIt
+		> Array ] "#(5 5 5 5)"
+```
