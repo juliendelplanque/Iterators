@@ -21,13 +21,13 @@ Dictionary >> basicIterator [
 
 { #category : #'*Iterators-CollectionsExtensions' }
 Dictionary >> basicKeysIterator [
-	^ self associationsIterator
+	^ self basicAssociationsIterator
 		outputTo: [ :object | object key ] collectIt
 ]
 
 { #category : #'*Iterators-CollectionsExtensions' }
 Dictionary >> basicValuesIterator [
-	^ self associationsIterator
+	^ self basicAssociationsIterator
 		outputTo: [ :object | object value ] collectIt
 ]
 
