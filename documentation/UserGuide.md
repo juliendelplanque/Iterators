@@ -25,7 +25,7 @@ This page contains the user documentation of Iterators project.
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
-- [Integration with Streams](#integration-with-streams]
+- [Integration with Streams](#integration-with-streams)
 
 
 ## Iterators
