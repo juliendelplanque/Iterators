@@ -1,7 +1,7 @@
 Extension { #name : #Integer }
 
 { #category : #'*Iterators' }
-Integer >> groupIt [
+Integer >> groupsOfIt [
 	^ Iterator groupsOfIteratorFor: self
 ]
 
