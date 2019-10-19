@@ -199,7 +199,7 @@ iterator
 ```Smalltalk
 iterator := #(1 2 3) iterator.
 iterator
-	| 2 groupIt "Create as much groups of 2 items as possible."
+	| 2 groupsOfIt "Create as much groups of 2 items as possible."
 	> Array "#((1 2) (3))"
 ```
 
