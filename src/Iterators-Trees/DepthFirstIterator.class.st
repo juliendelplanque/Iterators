@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'visitStack'
 	],
-	#category : #'Iterators-Core'
+	#category : #'Iterators-Trees'
 }
 
 { #category : #testing }

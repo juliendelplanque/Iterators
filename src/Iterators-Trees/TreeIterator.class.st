@@ -12,7 +12,7 @@ Class {
 		'root',
 		'childrenBlock'
 	],
-	#category : #'Iterators-Core'
+	#category : #'Iterators-Trees'
 }
 
 { #category : #'instance creation' }

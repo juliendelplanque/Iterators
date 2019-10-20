@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'visitQueue'
 	],
-	#category : #'Iterators-Core'
+	#category : #'Iterators-Trees'
 }
 
 { #category : #testing }
