@@ -1,6 +1,6 @@
 Extension { #name : #BlockClosure }
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-Decorators' }
 BlockClosure >> iteratorShouldSplit: anObject [
 	^ self value: anObject
 ]

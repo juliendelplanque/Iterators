@@ -15,8 +15,3 @@ Object >> breadthFirstIterator: childrenBlock [
 Object >> depthFirstIterator: childrenBlock [
 	^ (DepthFirstIterator root: self childrenBlock: childrenBlock) withCollectionAPI
 ]
-
-{ #category : #'*Iterators' }
-Object >> iteratorShouldSplit: anObject [
-	^ self = anObject
-]
