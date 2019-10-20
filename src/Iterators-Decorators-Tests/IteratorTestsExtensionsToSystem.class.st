@@ -1,7 +1,7 @@
 Class {
 	#name : #IteratorTestsExtensionsToSystem,
 	#superclass : #TestCase,
-	#category : #'Iterators-Tests-ExtensionsToSystem'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #tests }
