@@ -11,130 +11,6 @@ Class {
 	#category : #'Iterators-Core'
 }
 
-{ #category : #factory }
-Iterator class >> collectIteratorFor: aValuable [
-	^ CollectIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> detectIteratorFor: aValuable [
-	^ DetectIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> doIteratorFor: aValuable [
-	^ PreActionIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> flatCollectIteratorFor: aValuable [
-	^ FlatCollectIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> groupedByIteratorFor: aValuable [
-	^ GroupedByIterator new
-		block: aValuable;
-		yourself
-]
-
-{ #category : #factory }
-Iterator class >> groupsOfIteratorFor: anInteger [
-	^ GroupsOfIterator new
-		groupSize: anInteger;
-		yourself
-]
-
-{ #category : #factory }
-Iterator class >> limitIteratorFor: anInteger [
-	^ LimitIterator new
-		limit: anInteger;
-		yourself
-]
-
-{ #category : #factory }
-Iterator class >> mergeIteratorFor: aValuable [
-	^ IteratorsMerger new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> piecesCutWhereIteratorFor: aValuableWithTwoArguments [
-	^ PiecesCutWhereIterator block: aValuableWithTwoArguments
-]
-
-{ #category : #factory }
-Iterator class >> reduceIteratorFor: aValuable [
-	^ ReduceIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> rejectIteratorFor: aValuable [
-	^ SelectIterator new
-			block: [ :object | (aValuable value: object) not ];
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> selectIteratorFor: aValuable [
-	^ SelectIterator new
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> separateIteratorFor: aValuable [
-	^ PreActionIterator new
-			conditionBlock: [ :objectsSeenCount | objectsSeenCount > 0 ];
-			block: aValuable;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> skipIteratorFor: anInteger [
-	^ SkipIterator new
-		count: anInteger;
-		yourself
-]
-
-{ #category : #factory }
-Iterator class >> sortIteratorFor: aSortObject [
-	^ SortIterator new
-			block: aSortObject;
-			yourself
-]
-
-{ #category : #factory }
-Iterator class >> splitOnIteratorFor: objectToSplitOn [
-	^ SplitOnIterator objectToSplitOn: objectToSplitOn
-]
-
-{ #category : #factory }
-Iterator class >> untilIteratorFor: aValuable [
-	^ UntilIterator block: aValuable
-]
-
-{ #category : #factory }
-Iterator class >> windowIteratorFor: anInteger [
-	^ WindowIterator windowSize: anInteger
-]
-
-{ #category : #factory }
-Iterator class >> windowIteratorFor: anInteger step: step [
-	^ WindowIterator windowSize: anInteger step: step
-]
-
 { #category : #testing }
 Iterator >> atEnd [
 	"Returns true if the iterator can not provide more objects."
@@ -145,13 +21,6 @@ Iterator >> atEnd [
 Iterator >> checkHasNext [
 	self hasNext
 		ifFalse: [ self signalAtEnd ].
-]
-
-{ #category : #decorating }
-Iterator >> decoratedBy: anIteratorDecorator [
-	^ anIteratorDecorator
-		decoratedIterator: self;
-		yourself
 ]
 
 { #category : #accessing }
@@ -201,16 +70,6 @@ Iterator >> outputTo: anIteratorDecorator [
 { #category : #accessing }
 Iterator >> peek [
 	^ self subclassResponsibility
-]
-
-{ #category : #decorating }
-Iterator >> removeDuplicates [
-	^ self decoratedBy: DuplicateRemoverIterator new
-]
-
-{ #category : #decorating }
-Iterator >> removeIdentityDuplicates [
-	^ self decoratedBy: IdentityDuplicateRemoverIterator new
 ]
 
 { #category : #private }
@@ -264,9 +123,4 @@ Iterator >> upToEndDiscardingResult [
 { #category : #computing }
 Iterator >> upToEndInto: aAddableCollection [
 	^ self upTo: Float infinity into: aAddableCollection
-]
-
-{ #category : #decorating }
-Iterator >> withCollectionAPI [
-	^ self decoratedBy: IteratorWithCollectionAPI new
 ]

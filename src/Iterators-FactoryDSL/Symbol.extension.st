@@ -2,22 +2,22 @@ Extension { #name : #Symbol }
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> collectIt [
-	^ Iterator collectIteratorFor: self
+	^ IteratorDecoratorFactory collectIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> detectIt [
-	^ Iterator detectIteratorFor: self
+	^ IteratorDecoratorFactory detectIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> doIt [
-	^ Iterator doIteratorFor: self
+	^ IteratorDecoratorFactory doIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> flatCollectIt [
-	^ Iterator flatCollectIteratorFor: self
+	^ IteratorDecoratorFactory flatCollectIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
@@ -27,7 +27,7 @@ Symbol >> foldIt [
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> groupedByIt [
-	^ Iterator groupedByIteratorFor: self
+	^ IteratorDecoratorFactory groupedByIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
@@ -38,15 +38,15 @@ Symbol >> reduceIt [
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> rejectIt [
-	^ Iterator rejectIteratorFor: self
+	^ IteratorDecoratorFactory rejectIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> selectIt [
-	^ Iterator selectIteratorFor: self
+	^ IteratorDecoratorFactory selectIteratorFor: self
 ]
 
 { #category : #'*Iterators-FactoryDSL' }
 Symbol >> untilIt [
-	^ Iterator untilIteratorFor: self
+	^ IteratorDecoratorFactory untilIteratorFor: self
 ]

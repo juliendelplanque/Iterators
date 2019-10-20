@@ -8,7 +8,7 @@ Class {
 		'groupClass',
 		'groupSize'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #private }

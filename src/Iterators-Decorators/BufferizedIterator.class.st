@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'buffer'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #private }

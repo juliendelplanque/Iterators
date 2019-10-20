@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'seen'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #accessing }

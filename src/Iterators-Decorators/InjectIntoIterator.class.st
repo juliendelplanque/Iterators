@@ -11,7 +11,7 @@ Class {
 	#instVars : [
 		'baseValue'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #private }

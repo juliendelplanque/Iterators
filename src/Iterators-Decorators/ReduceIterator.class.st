@@ -8,7 +8,7 @@ Such iterator will return a single object.
 Class {
 	#name : #ReduceIterator,
 	#superclass : #AggregatorIteratorDecorator,
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #private }

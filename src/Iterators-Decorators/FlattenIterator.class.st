@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'subIterator'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #testing }

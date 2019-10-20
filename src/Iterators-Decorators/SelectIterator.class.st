@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'next'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #testing }

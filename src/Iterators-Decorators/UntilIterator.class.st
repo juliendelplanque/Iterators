@@ -6,7 +6,7 @@ Class {
 	#superclass : #IteratorDecorator,
 	#traits : 'TIteratorDecoratorWithBlock',
 	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #testing }

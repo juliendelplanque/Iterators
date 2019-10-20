@@ -5,7 +5,7 @@ Class {
 		'iteratorToDecorateWhenPossible',
 		'internalIterator'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #private }

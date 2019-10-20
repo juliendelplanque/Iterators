@@ -8,7 +8,7 @@ Class {
 		'count',
 		'skippedCount'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #accessing }

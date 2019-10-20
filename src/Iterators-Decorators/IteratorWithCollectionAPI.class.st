@@ -4,7 +4,7 @@ I am an iterator decorator that provides an API similar to Collection's API.
 Class {
 	#name : #IteratorWithCollectionAPI,
 	#superclass : #IteratorDecorator,
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #accessing }

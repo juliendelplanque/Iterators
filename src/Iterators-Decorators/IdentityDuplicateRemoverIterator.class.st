@@ -4,7 +4,7 @@ I do the same as my superclass but I use identity (#==) to test if I already saw
 Class {
 	#name : #IdentityDuplicateRemoverIterator,
 	#superclass : #DuplicateRemoverIterator,
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #initialization }

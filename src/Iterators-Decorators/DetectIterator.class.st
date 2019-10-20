@@ -8,7 +8,7 @@ Class {
 	#superclass : #IteratorDecoratorWithInternalIterator,
 	#traits : 'TIteratorDecoratorWithBlock @ {#traitBlock:->#block:}',
 	#classTraits : 'TIteratorDecoratorWithBlock classTrait',
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #accessing }

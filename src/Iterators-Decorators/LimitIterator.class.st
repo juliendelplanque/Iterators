@@ -15,7 +15,7 @@ Class {
 		'seenCount',
 		'limit'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #'instance creation' }

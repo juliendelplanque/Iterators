@@ -11,7 +11,7 @@ Class {
 		'firstTimeAtEnd',
 		'splittedOnLastObject'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #'as yet unclassified' }

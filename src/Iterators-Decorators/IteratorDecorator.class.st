@@ -13,7 +13,7 @@ Class {
 	#instVars : [
 		'decoratedIterator'
 	],
-	#category : #'Iterators-Decorators'
+	#category : #'Iterators-Decorators-Decorators'
 }
 
 { #category : #'instance creation' }
