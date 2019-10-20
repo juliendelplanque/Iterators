@@ -4,7 +4,7 @@ A DetectIteratorTest is a test class for testing the behavior of DetectIterator
 Class {
 	#name : #DetectIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

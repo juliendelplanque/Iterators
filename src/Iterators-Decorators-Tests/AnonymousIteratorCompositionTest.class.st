@@ -4,7 +4,7 @@ An AnonymousIteratorCompositionTest is a test class for testing the behavior of 
 Class {
 	#name : #AnonymousIteratorCompositionTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

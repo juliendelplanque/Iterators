@@ -4,7 +4,7 @@ A DuplicateRemoverIteratorTest is a test class for testing the behavior of Dupli
 Class {
 	#name : #DuplicateRemoverIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

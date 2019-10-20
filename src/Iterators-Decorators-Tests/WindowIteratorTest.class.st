@@ -4,7 +4,7 @@ A WindowIteratorTest is a test class for testing the behavior of WindowIterator
 Class {
 	#name : #WindowIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

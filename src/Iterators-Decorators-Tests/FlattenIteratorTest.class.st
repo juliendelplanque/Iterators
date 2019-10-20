@@ -4,7 +4,7 @@ A FlattenIteratorTest is a test class for testing the behavior of FlattenIterato
 Class {
 	#name : #FlattenIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

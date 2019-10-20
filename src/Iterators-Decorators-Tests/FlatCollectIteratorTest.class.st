@@ -4,7 +4,7 @@ A FlatCollectIteratorTest is a test class for testing the behavior of FlatCollec
 Class {
 	#name : #FlatCollectIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

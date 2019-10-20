@@ -4,7 +4,7 @@ An IteratorDecoratorTest is a test class for testing the behavior of IteratorDec
 Class {
 	#name : #IteratorDecoratorTest,
 	#superclass : #IteratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #testing }

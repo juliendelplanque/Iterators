@@ -4,7 +4,7 @@ A GeneratorDecoratorTest is a test class for testing the behavior of GeneratorDe
 Class {
 	#name : #GeneratorDecoratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

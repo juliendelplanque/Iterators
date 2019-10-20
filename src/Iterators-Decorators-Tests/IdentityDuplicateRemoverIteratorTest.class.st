@@ -4,7 +4,7 @@ An IdentityDuplicateRemoverIteratorTest is a test class for testing the behavior
 Class {
 	#name : #IdentityDuplicateRemoverIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

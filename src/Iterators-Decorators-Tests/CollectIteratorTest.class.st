@@ -4,7 +4,7 @@ An CollectIteratorTest is a test class for testing the behavior of CollectIterat
 Class {
 	#name : #CollectIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

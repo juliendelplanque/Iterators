@@ -4,7 +4,7 @@ An SelectIteratorTest is a test class for testing the behavior of SelectIterator
 Class {
 	#name : #SelectIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

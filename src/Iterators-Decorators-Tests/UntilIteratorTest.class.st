@@ -4,7 +4,7 @@ An UntilIteratorTest is a test class for testing the behavior of UntilIterator
 Class {
 	#name : #UntilIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

@@ -4,7 +4,7 @@ An IteratorWithCollectionAPITest is a test class for testing the behavior of Ite
 Class {
 	#name : #IteratorWithCollectionAPITest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

@@ -4,7 +4,7 @@ A SkipIteratorTest is a test class for testing the behavior of SkipIterator
 Class {
 	#name : #SkipIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

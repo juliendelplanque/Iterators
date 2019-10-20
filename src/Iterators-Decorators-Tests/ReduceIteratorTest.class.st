@@ -4,7 +4,7 @@ A ReduceIteratorTest is a test class for testing the behavior of ReduceIterator
 Class {
 	#name : #ReduceIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }

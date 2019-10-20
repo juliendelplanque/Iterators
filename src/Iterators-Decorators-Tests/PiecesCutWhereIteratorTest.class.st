@@ -4,7 +4,7 @@ A PiecesCutWhereIteratorTest is a test class for testing the behavior of PiecesC
 Class {
 	#name : #PiecesCutWhereIteratorTest,
 	#superclass : #IteratorDecoratorTest,
-	#category : #'Iterators-Tests-Decorators'
+	#category : #'Iterators-Decorators-Tests'
 }
 
 { #category : #'iterator creation' }
