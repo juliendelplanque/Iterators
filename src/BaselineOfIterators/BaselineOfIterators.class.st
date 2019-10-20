@@ -18,7 +18,7 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators-FactoryDSL' with: [ spec requires: #('Iterators-Decorators') ];
 				package: 'Iterators-Deprecated' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Tests' with: [ spec requires: #('Iterators') ];
-				package: 'Iterators-Tests-Trees' with: [ spec requires: #('Iterators-Trees' 'Iterators-Tests') ];
+				package: 'Iterators-Trees-Tests' with: [ spec requires: #('Iterators-Trees' 'Iterators-Tests') ];
 				package: 'Iterators-Decorators-Tests' with: [ spec requires: #('Iterators-Decorators' 'Iterators-Tests') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];
