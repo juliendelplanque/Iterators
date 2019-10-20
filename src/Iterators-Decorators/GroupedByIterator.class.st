@@ -1,3 +1,6 @@
+"
+I provide a behaviour similar to Collection>>#groupedBy: method.
+"
 Class {
 	#name : #GroupedByIterator,
 	#superclass : #IteratorDecorator,

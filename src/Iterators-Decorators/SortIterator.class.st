@@ -1,3 +1,6 @@
+"
+I am iterator that bufferize all elements from the underlaying iterator, sort them according to my #block and then provides them sorted via my #peek and #next methods as any other iterator.
+"
 Class {
 	#name : #SortIterator,
 	#superclass : #IteratorDecorator,
