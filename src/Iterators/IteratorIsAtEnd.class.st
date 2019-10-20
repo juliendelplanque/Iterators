@@ -1,3 +1,8 @@
+"
+I am the error created when an iterator reached the end of its iterations.
+
+One can access the concerned iterator via #iterator accessor.
+"
 Class {
 	#name : #IteratorIsAtEnd,
 	#superclass : #Error,
