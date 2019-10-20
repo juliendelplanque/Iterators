@@ -14,7 +14,7 @@ Class {
 	#category : #'Iterators-Decorators-Decorators'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 SplitOnIterator class >> objectToSplitOn: objectToSplitOn [
 	^ self new
 		objectToSplitOn: objectToSplitOn;
