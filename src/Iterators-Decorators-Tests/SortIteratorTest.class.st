@@ -1,3 +1,6 @@
+"
+A SortIteratorTest is a test class for testing the behavior of SortIterator
+"
 Class {
 	#name : #SortIteratorTest,
 	#superclass : #IteratorDecoratorTest,

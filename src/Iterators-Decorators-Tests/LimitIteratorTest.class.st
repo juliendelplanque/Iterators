@@ -1,3 +1,6 @@
+"
+A LimitIteratorTest is a test class for testing the behavior of LimitIterator
+"
 Class {
 	#name : #LimitIteratorTest,
 	#superclass : #IteratorDecoratorTest,
