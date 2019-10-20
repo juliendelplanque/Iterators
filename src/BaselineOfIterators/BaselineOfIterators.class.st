@@ -13,6 +13,7 @@ BaselineOfIterators >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Iterators';
+				package: 'Iterators-FactoryDSL' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Deprecated' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Tests' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
@@ -30,7 +31,7 @@ BaselineOfIterators >> baseline: spec [
 					package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators' 'Iterators-Pharo7') ] ].
 			
 			spec
-				group: 'core' with: #('Iterators' 'Iterators-Deprecated');
+				group: 'core' with: #('Iterators' 'Iterators-FactoryDSL' 'Iterators-Deprecated');
 				group: 'collections' with: #('Iterators-CollectionsExtensions');
 				group: 'shell-dsl' with: #('Iterators-ShellDSL');
 				group: 'streams' with: #('Iterators-Streams' 'Iterators-Streams-StreamsExtensions');

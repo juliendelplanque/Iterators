@@ -1,52 +1,52 @@
 Extension { #name : #Symbol }
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> collectIt [
 	^ Iterator collectIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> detectIt [
 	^ Iterator detectIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> doIt [
 	^ Iterator doIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> flatCollectIt [
 	^ Iterator flatCollectIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> foldIt [
 	^ self reduceIt
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> groupedByIt [
 	^ Iterator groupedByIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> reduceIt [
 	^ [ :object :anotherObject |
 		object perform: self with: anotherObject ] reduceIt
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> rejectIt [
 	^ Iterator rejectIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> selectIt [
 	^ Iterator selectIteratorFor: self
 ]
 
-{ #category : #'*Iterators' }
+{ #category : #'*Iterators-FactoryDSL' }
 Symbol >> untilIt [
 	^ Iterator untilIteratorFor: self
 ]

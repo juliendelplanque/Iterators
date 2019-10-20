@@ -17,14 +17,6 @@ Object >> depthFirstIterator: childrenBlock [
 ]
 
 { #category : #'*Iterators' }
-Object >> injectItInto: aBlock [
-	^ InjectIntoIterator new
-		baseValue: self;
-		block: aBlock;
-		yourself
-]
-
-{ #category : #'*Iterators' }
 Object >> iteratorShouldSplit: anObject [
 	^ self = anObject
 ]
