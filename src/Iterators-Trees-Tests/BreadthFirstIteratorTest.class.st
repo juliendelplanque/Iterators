@@ -1,3 +1,6 @@
+"
+I am an class holding tests for a breadth-first tree iterator.
+"
 Class {
 	#name : #BreadthFirstIteratorTest,
 	#superclass : #TreeIteratorTest,

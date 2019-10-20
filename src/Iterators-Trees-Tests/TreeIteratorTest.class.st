@@ -1,3 +1,6 @@
+"
+I am an abstract class holding tests for a tree iterator.
+"
 Class {
 	#name : #TreeIteratorTest,
 	#superclass : #IteratorTest,
