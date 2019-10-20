@@ -1,7 +1,7 @@
 Class {
 	#name : #DepthFirstIteratorTest,
 	#superclass : #TreeIteratorTest,
-	#category : #'Iterators-Tests-Core'
+	#category : #'Iterators-Trees-Tests'
 }
 
 { #category : #'iterator creation' }
