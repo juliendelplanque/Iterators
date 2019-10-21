@@ -22,12 +22,13 @@ BaselineOfIterators >> baseline: spec [
 				package: 'Iterators-Decorators-Tests' with: [ spec requires: #('Iterators-Decorators' 'Iterators-Tests') ];
 				package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-CollectionsExtensions-Tests' with: [ spec requires: #('Iterators-CollectionsExtensions') ];
-				package: 'Iterators-Streams' with: [ spec requires: #('Iterators') ];
-				package: 'Iterators-Streams-StreamsExtensions' with: [ spec requires: #('Iterators-Streams') ];
-				package: 'Iterators-Streams-ZincStreamsExtensions' with: [ spec requires: #('Iterators-Streams') ];
 				package: 'Iterators-ShellDSL' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-GTInspector' with: [ spec requires: #('Iterators') ];
 				package: 'Iterators-Benchmarks' with: [ spec requires: #('Iterators') ].
+			
+			self streamsPlugin: spec.
+			self zincStreamsPlugin: spec.
+			self neoCSVPlugin: spec.
 			
 			spec for: #'pharo7.x' do: [ 
 				spec
@@ -38,9 +39,32 @@ BaselineOfIterators >> baseline: spec [
 				group: 'core' with: #('Iterators' 'Iterators-Trees' 'Iterators-Decorators' 'Iterators-FactoryDSL' 'Iterators-Deprecated');
 				group: 'collections' with: #('Iterators-CollectionsExtensions');
 				group: 'shell-dsl' with: #('Iterators-ShellDSL');
-				group: 'streams' with: #('Iterators-Streams' 'Iterators-Streams-StreamsExtensions');
-				group: 'streams-zinc' with: #('streams' 'Iterators-Streams-ZincStreamsExtensions');
 				group: 'inspector-extensions' with: #('Iterators-GTInspector');
 				group: 'tests' with: #('Iterators-Tests' 'Iterators-CollectionsExtensions-Tests');
 				group: 'benchmarks' with: #('Iterators-Benchmarks') ]
+]
+
+{ #category : #baselines }
+BaselineOfIterators >> neoCSVPlugin: spec [
+	spec baseline: 'NeoCSV' with: [ spec repository: 'github://svenvc/NeoCSV/repository' ].
+	spec
+		package: 'Iterators-NeoCSV' with: [ spec requires: #('Iterators' 'NeoCSV') ];
+		package: 'Iterators-NeoCSV-Tests' with: [ spec requires: #('Iterators-NeoCSV') ].
+	spec group: 'neocsv' with: #('Iterators')
+]
+
+{ #category : #baselines }
+BaselineOfIterators >> streamsPlugin: spec [
+	spec
+		package: 'Iterators-Streams' with: [ spec requires: #('Iterators') ];
+		package: 'Iterators-Streams-Tests' with: [ spec requires: #('Iterators-Streams') ];
+		package: 'Iterators-Streams-StreamsExtensions' with: [ spec requires: #('Iterators-Streams') ].
+	
+	spec group: 'streams' with: #('Iterators-Streams' 'Iterators-Streams-StreamsExtensions')
+]
+
+{ #category : #baselines }
+BaselineOfIterators >> zincStreamsPlugin: spec [
+	spec package: 'Iterators-Streams-ZincStreamsExtensions' with: [ spec requires: #('Iterators-Streams') ].
+	spec group: 'streams-zinc' with: #('streams' 'Iterators-Streams-ZincStreamsExtensions')
 ]
