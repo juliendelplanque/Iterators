@@ -369,4 +369,4 @@ It is also possible to iterator over **bytes** if the underlaying stream is a bi
 ```
 
 ## Integration with NeoCSV
-Check the [guide for NeoCSV integration](https://github.com/juliendelplanque/Iterators/blob/neocsv-integration/documentation/NeoCSVIntegration.md).
+Check the [guide for NeoCSV integration](NeoCSVIntegration.md).
