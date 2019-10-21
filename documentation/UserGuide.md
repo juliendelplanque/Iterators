@@ -26,6 +26,7 @@ This page contains the user documentation of Iterators project.
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
 - [Integration with Streams](#integration-with-streams)
+- [Integration with NeoCSV](#integration-with-neocsv)
 
 
 ## Iterators
@@ -366,3 +367,6 @@ It is also possible to iterator over **bytes** if the underlaying stream is a bi
 		| #bitXor: reduceIt
 		> Array ] "#(9)"
 ```
+
+## Integration with NeoCSV
+Check the [guide for NeoCSV integration](https://github.com/juliendelplanque/Iterators/blob/neocsv-integration/documentation/NeoCSVInteration.md).
