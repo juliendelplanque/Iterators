@@ -3,7 +3,8 @@ SmalltalkCISpec {
         SCIMetacelloLoadSpec {
             #baseline : 'Iterators',
             #directory : 'src',
-            #platforms : [ #pharo ]
+            #platforms : [ #pharo ],
+            #load : [ 'tests', 'streams-tests', 'neocsv-tests' ]
         }
     ]
 }
