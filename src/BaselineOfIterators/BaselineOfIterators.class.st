@@ -40,7 +40,7 @@ BaselineOfIterators >> baseline: spec [
 				group: 'collections' with: #('Iterators-CollectionsExtensions');
 				group: 'shell-dsl' with: #('Iterators-ShellDSL');
 				group: 'inspector-extensions' with: #('Iterators-GTInspector');
-				group: 'tests' with: #('Iterators-Tests' 'Iterators-CollectionsExtensions-Tests');
+				group: 'tests' with: #('Iterators-Tests' 'Iterators-Trees-Tests' 'Iterators-Decorators-Tests' 'Iterators-CollectionsExtensions-Tests');
 				group: 'benchmarks' with: #('Iterators-Benchmarks');
 				group: 'default' with: #('core' 'collections' 'shell-dsl' 'inspector-extensions' 'streams' 'streams-zinc' 'streams-tests' 'tests' 'benchmarks' ) ]
 ]
