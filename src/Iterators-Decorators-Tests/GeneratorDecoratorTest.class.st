@@ -28,7 +28,7 @@ GeneratorDecoratorTest >> testPipingGenerator [
 
 	| res |
 	res := ((1 to: 15) iterator
-		|
+		outputTo:
 			(GeneratorDecorator
 				pipe: [ :in :gen | 
 					[ in atEnd ]
