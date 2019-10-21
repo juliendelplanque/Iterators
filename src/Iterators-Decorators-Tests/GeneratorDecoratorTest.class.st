@@ -34,6 +34,6 @@ GeneratorDecoratorTest >> testPipingGenerator [
 					[ in atEnd ]
 						whileFalse: [ in peek isPrime
 								ifTrue: [ gen yield: in peek ].
-							in next ] ])) > Array.
+							in next ] ])) outputTo: Array.
 	self assert: res equals: #(2 3 5 7 11 13 )
 ]
