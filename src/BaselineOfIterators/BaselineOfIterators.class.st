@@ -36,12 +36,16 @@ BaselineOfIterators >> baseline: spec [
 					package: 'Iterators-CollectionsExtensions' with: [ spec requires: #('Iterators' 'Iterators-Pharo7') ] ].
 			
 			spec
-				group: 'core' with: #('Iterators' 'Iterators-Trees' 'Iterators-Decorators' 'Iterators-FactoryDSL' 'Iterators-Deprecated');
+				group: 'kernel' with: #('Iterators');
+				group: 'trees' with: #('Iterators-Trees');
+				group: 'decorators' with: #('Iterators-Decorators');
+				group: 'core' with: #('kernel' 'trees' 'decorators' 'Iterators-FactoryDSL' 'Iterators-Deprecated');
 				group: 'collections' with: #('Iterators-CollectionsExtensions');
 				group: 'shell-dsl' with: #('Iterators-ShellDSL');
 				group: 'inspector-extensions' with: #('Iterators-GTInspector');
-				group: 'tests' with: #('Iterators-Tests' 'Iterators-CollectionsExtensions-Tests');
-				group: 'benchmarks' with: #('Iterators-Benchmarks') ]
+				group: 'tests' with: #('core' 'Iterators-Tests' 'Iterators-Trees-Tests' 'Iterators-Decorators-Tests' 'Iterators-CollectionsExtensions-Tests');
+				group: 'benchmarks' with: #('Iterators-Benchmarks');
+				group: 'default' with: #('core' 'collections' 'shell-dsl' 'inspector-extensions' 'streams' 'streams-zinc' 'streams-tests' 'tests' 'benchmarks' ) ]
 ]
 
 { #category : #baselines }
