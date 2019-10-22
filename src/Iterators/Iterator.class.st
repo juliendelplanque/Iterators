@@ -17,6 +17,12 @@ Iterator >> atEnd [
 	^ self hasNext not
 ]
 
+{ #category : #accessing }
+Iterator >> basicIterator [
+	"To be polymorphic with objects providing a basicIterator."
+	^ self
+]
+
 { #category : #private }
 Iterator >> checkHasNext [
 	self hasNext
@@ -39,6 +45,12 @@ Iterator >> hasNext [
 { #category : #testing }
 Iterator >> isDecorator [
 	^ false
+]
+
+{ #category : #accessing }
+Iterator >> iterator [
+	"To be polymorphic with objects providing an iterator."
+	^ self withCollectionAPI
 ]
 
 { #category : #accessing }

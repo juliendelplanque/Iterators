@@ -237,6 +237,14 @@ IteratorWithCollectionAPI >> isNotEmpty [
 	^ self hasNext
 ]
 
+{ #category : #accessing }
+IteratorWithCollectionAPI >> iterator [
+	"To be polymorphic with objects providing an iterator.
+	 No need to decorate twice.
+	"
+	^ self
+]
+
 { #category : #testing }
 IteratorWithCollectionAPI >> occurrencesOf: anObject [ 
 	"Answer how many of the receiver's elements are equal to anObject."
