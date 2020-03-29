@@ -2,7 +2,9 @@
 [![Build Status](https://travis-ci.com/juliendelplanque/Iterators.svg?branch=master)](https://travis-ci.com/juliendelplanque/Iterators)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Pharo version](https://img.shields.io/badge/Pharo-7.0-%23aac9ff.svg)](https://pharo.org/download)
-[![Pharo version](https://img.shields.io/badge/Pharo-8.0-%23aac9ff.svg)](https://pharo.org/download)
+[![pharo version](https://img.shields.io/badge/pharo-8.0-%23aac9ff.svg)](https://pharo.org/download)
+[![pharo version](https://img.shields.io/badge/pharo-9.0-%23aac9ff.svg)](https://pharo.org/download)
+
 
 Implements Iterators for Pharo's Collections.
 
