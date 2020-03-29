@@ -59,6 +59,11 @@ BaselineOfIterators >> neoCSVPlugin: spec [
 	spec group: 'neocsv-tests' with: #('neocsv' 'Iterators-NeoCSV-Tests')
 ]
 
+{ #category : #accessing }
+BaselineOfIterators >> projectClass [
+    ^ MetacelloCypressBaselineProject
+]
+
 { #category : #baselines }
 BaselineOfIterators >> streamsPlugin: spec [
 	spec
