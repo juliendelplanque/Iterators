@@ -9,9 +9,11 @@ Class {
 
 { #category : #accessing }
 PostActionIterator >> next [
-	| toReturn |
-	toReturn := super next.
 	self shouldApplyActionOnNext
-		ifTrue: self block.
-	^ toReturn
+		ifTrue: [ 
+			| toReturn |
+			self block value: (toReturn := super next).
+			^ toReturn ].
+	
+	^ super next
 ]
