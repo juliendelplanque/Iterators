@@ -49,6 +49,21 @@ IteratorDecorator >> decoratedIteratorsIterator [
 	^ LinkedListIterator on: self nextLinkBlock: [ :iterator | iterator decoratedIterator ]
 ]
 
+{ #category : #'results-extraction' }
+IteratorDecorator >> extractResultsForIterator: iterator upTo: size [
+	"Trick to allow an iterator decorator to be the object that extract results of another iterator.
+	 This method is useful when used with DSL that provide a binary message for extracting an
+	 iterator's results.
+	
+	 For example in ShellDSL, with this method, one can write:
+	
+		#(1 2 3) iterator > [ :x | x ** 2 ] collectIt
+	
+	 and get as result the following array #(1 4 9)
+	"
+	^ (iterator outputTo: self) upToEnd
+]
+
 { #category : #testing }
 IteratorDecorator >> hasNext [
 	^ self decoratedIterator hasNext

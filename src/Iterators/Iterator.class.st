@@ -91,30 +91,12 @@ Iterator >> signalAtEnd [
 
 { #category : #computing }
 Iterator >> upTo: size as: aCollectionClass [
-	| actualSize expectedUpToEndSize |
-	(aCollectionClass inheritsFrom: SequenceableCollection)
-		ifFalse: [ ^ self upTo: size into: aCollectionClass new ].
-	
-	actualSize := 0.
-	expectedUpToEndSize := size isInfinite
-		ifTrue: [ self maximalUpToEndSize ]
-		ifFalse: [ size ].
-	^ aCollectionClass new: expectedUpToEndSize streamContents: [ :stream |
-		[ self hasNext and: [ actualSize < size ] ]
-			whileTrue: [ 
-				stream nextPut: self next.
-				actualSize := actualSize + 1 ] ]
+	^ aCollectionClass extractResultsForIterator: self upTo: size
 ]
 
 { #category : #computing }
-Iterator >> upTo: size into: aAddableCollection [
-	| actualSize |
-	actualSize := 0.
-	[ self hasNext and: [ actualSize < size ] ]
-		whileTrue: [ 
-			aAddableCollection add: self next.
-			actualSize := actualSize + 1 ].
-	^ aAddableCollection
+Iterator >> upTo: size into: anAddableCollection [
+	^ anAddableCollection extractResultsForIterator: self upTo: size
 ]
 
 { #category : #computing }

@@ -23,6 +23,16 @@ ConditionalActionIteratorDecorator >> conditionBlock: anObject [
 	conditionBlock := anObject
 ]
 
+{ #category : #'results-extraction' }
+ConditionalActionIteratorDecorator >> extractResultsForIterator: iterator upTo: size [
+	"In case of action iterators, usually people discard the result.
+	 This method allows one to use an action iterator as results extractor that discard the result.
+	
+	
+	"
+	^ (iterator outputTo: self) upToEndDiscardingResult
+]
+
 { #category : #initialization }
 ConditionalActionIteratorDecorator >> initialize [
 	super initialize.
