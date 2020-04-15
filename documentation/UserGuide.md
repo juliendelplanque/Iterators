@@ -309,6 +309,18 @@ iterator
 	> NullAddableObject "Special object that ignore incoming objects."
 ```
 
+> Since `v1.13.0`, it is possible to use an iterator as argument of `>` or `>>`.
+> A good use case for this feature is when you want to discard the output of your chain of iterators.
+> In that case, you can provide a `DoIterator` as argument of `>` or `>>`.
+> If we take the previous example, the code becomes:
+>
+> ```Smalltalk
+> iterator := #(1 2 3) iterator.
+> iterator
+> 	| [ :x | x * 2 ] collectIt
+> 	> [ :object | object logCr ] doIt "Just print incoming objects in transcript and discard output."
+> ```
+
 ## Iterator Wrappers
 > TODO
 
