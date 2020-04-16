@@ -23,7 +23,7 @@ IteratorDecoratorFactory class >> detectIteratorFor: aValuable [
 
 { #category : #factory }
 IteratorDecoratorFactory class >> doIteratorFor: aValuable [
-	^ PostActionIterator new
+	^ ActionIterator new
 			block: aValuable;
 			yourself
 ]
