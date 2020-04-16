@@ -11,7 +11,7 @@ Class {
 
 { #category : #accessing }
 ActionIterator >> next [
-	| toReturn |
-	self block value: (toReturn := super next).
-	^ toReturn
+	^ super next in: [ :next |
+		self block value: next.
+		next ]
 ]
