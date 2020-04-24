@@ -10,7 +10,8 @@ Class {
 { #category : #'iterator creation' }
 PerformCollectIteratorTest >> createIteratorOn: anObject [
 	^ (PerformCollectIterator decorate: anObject)
-			selector: #* arguments: #(2);
+			selector: #*;
+			arguments: #(2);
 			yourself
 ]
 
