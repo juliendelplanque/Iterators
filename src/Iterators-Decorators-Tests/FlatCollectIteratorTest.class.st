@@ -9,8 +9,8 @@ Class {
 
 { #category : #'iterator creation' }
 FlatCollectIteratorTest >> createIteratorOn: anObject [
-	^ (FlatCollectIterator decorate: anObject)
-			block: [ :x | x * 2 ];
+	^ (IteratorDecoratorFactory flatCollectIteratorFor: [ :x | x * 2 ])
+			decorate: anObject;
 			yourself
 ]
 

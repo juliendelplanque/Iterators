@@ -49,6 +49,14 @@ IteratorDecorator >> decoratedIteratorsIterator [
 	^ LinkedListIterator on: self nextLinkBlock: [ :iterator | iterator decoratedIterator ]
 ]
 
+{ #category : #testing }
+IteratorDecorator >> decoratesDecoratorIterator [
+	"Returns true if the iterator decorator decorates an iterator that is an iterator decorator.
+	 Else returns false. In particular, returns false if decorated iterator is nil.
+	"
+	^ self decoratedIterator isNotNil and: [ self decoratedIterator isDecorator ]
+]
+
 { #category : #'results-extraction' }
 IteratorDecorator >> extractResultsForIterator: iterator upTo: size [
 	"Trick to allow an iterator decorator to be the object that extract results of another iterator.
