@@ -23,3 +23,14 @@ FlatCollectIteratorTest >> iteratorWalk [
 FlatCollectIteratorTest >> objectToWalk [
 	^ SequentialAccessIterator on: #((1 2) () (3 4 5) (6 7) (8) (9 10) ())
 ]
+
+{ #category : #tests }
+FlatCollectIteratorTest >> testSelectIteratorBeforeFlatCollectIterator [
+	"See issue https://github.com/juliendelplanque/Iterators/issues/31"
+	| selectBeforeFlatCollectIterator |
+	selectBeforeFlatCollectIterator := ((1 to: 10) iterator
+		outputTo: #odd selectIt)
+		outputTo: [ :x | { x . x + 1 } ] flatCollectIt.
+		
+	self assert: (selectBeforeFlatCollectIterator upToEndAs: Array) equals: #(1 2 3 4 5 6 7 8 9 10)
+]
