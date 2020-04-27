@@ -30,9 +30,7 @@ IteratorDecoratorFactory class >> doIteratorFor: aValuable [
 
 { #category : #factory }
 IteratorDecoratorFactory class >> flatCollectIteratorFor: aValuable [
-	^ FlatCollectIterator new
-			block: aValuable;
-			yourself
+	^ IteratorsComposition composition: (aValuable collectIt outputTo: FlattenIterator)
 ]
 
 { #category : #factory }

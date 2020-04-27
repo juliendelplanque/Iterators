@@ -22,6 +22,7 @@ This page contains the user documentation of Iterators project.
   * [Split on](#split-on)
   * [Sort](#sort)
   * [Grouped by](#grouped-by)
+  * [Flat collect](#flat-collect)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
@@ -288,6 +289,14 @@ iterator := #(1 2 3) iterator.
 iterator
 	| #odd groupedByIt "Groups the integer into 2 groups: true if the number is odd, false if it is even."
 	> Array "{true->#(1 3). false->#(2)}"
+```
+
+### Flat collect
+```Smalltalk
+iterator := #((1 2) (3)) iterator.
+iterator
+	| [ :x | x * 2 ] flatCollectIt "Multiply integer by 2 and flatten nested arrays."
+	> Array "#(2 4 6)"
 ```
 
 ## Chaining Iterator Decorators
