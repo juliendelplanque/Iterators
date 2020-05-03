@@ -23,6 +23,7 @@ This page contains the user documentation of Iterators project.
   * [Sort](#sort)
   * [Grouped by](#grouped-by)
   * [Flat collect](#flat-collect)
+  * [Duplicate remover](#duplicate-remover)
 - [Chaining Iterator Decorators](#chaining-iterator-decorators)
 - [Discarding Output](#discarding-output)
 - [Iterator Wrappers](#iterator-wrappers)
@@ -298,6 +299,18 @@ iterator
 	| [ :x | x * 2 ] flatCollectIt "Multiply integer by 2 and flatten nested arrays."
 	> Array "#(2 4 6)"
 ```
+
+### Duplicate remover
+```Smalltalk
+iterator := #(1 1 2 2 3 3 4 4 5 5 6 6) iterator.
+iterator
+	| DuplicateRemoverIterator "Removes objects that are detected as duplicated via equality (#=)."
+	> Array "#(1 2 3 4 5 6)"
+```
+
+>
+> Note: To remove duplicates via identity (#==) use IdentityDuplicateRemoverIterator
+>
 
 ## Chaining Iterator Decorators
 
