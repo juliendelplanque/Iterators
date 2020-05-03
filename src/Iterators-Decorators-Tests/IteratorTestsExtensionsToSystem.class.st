@@ -19,11 +19,11 @@ IteratorTestsExtensionsToSystem >> testBlockClosureRejectIt [
 	| block iterator |
 	block := [ :x | true ].
 	iterator := block rejectIt.
-	
+
 	self assert: iterator class equals: SelectIterator.
 	self deny: iterator block equals: block.
-	
-	self assert: (iterator block value: #foo) equals: false. "Ensure that the block is negated."
+
+	self deny: (iterator block value: #foo)	"Ensure that the block is negated."
 ]
 
 { #category : #tests }
@@ -63,11 +63,11 @@ IteratorTestsExtensionsToSystem >> testSymbolRejectIt [
 	| symbol iterator |
 	symbol := #odd.
 	iterator := symbol rejectIt.
-	
+
 	self assert: iterator class equals: SelectIterator.
 	self deny: iterator block equals: symbol.
-	
-	self assert: (iterator block value: 1) equals: false. "Ensure that the block is negated."
+
+	self deny: (iterator block value: 1)	"Ensure that the block is negated."
 ]
 
 { #category : #tests }

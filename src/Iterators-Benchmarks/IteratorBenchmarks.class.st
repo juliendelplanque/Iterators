@@ -53,6 +53,7 @@ IteratorBenchmarks >> defaultBenchTime [
 
 { #category : #initialization }
 IteratorBenchmarks >> initialize [
+	super initialize.
 	self benchTime: self defaultBenchTime
 ]
 
